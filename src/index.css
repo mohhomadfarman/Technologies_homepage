@@ -332,10 +332,11 @@ box-shadow: 0 0 15px #00000014;
 .business_process_perent .business_body_text .business_body_small p{
   color: #828282;
   font-size: 15px;
-  font-family: "Poppins", "sans-serif";
+  font-family: "Roboto", "sans-serif";
   font-weight: 400;
   margin-bottom: 15px;
   width: 60%;
+  line-height: 30px;
 }
 
 .sidelaptop{
@@ -363,13 +364,15 @@ box-shadow: 0 0 15px #00000014;
   font-weight:400;
   line-height: 30px;
   text-align: center;
-  margin-bottom: 30px;
-  font-family: "Poppins", "sans-serif";
+  margin-bottom:0;
+  font-family: "Roboto", "sans-serif";
   margin-left: auto;
   margin-right: auto;
   width: 80%;
 }
-
+.amazing_layout svg{
+  margin-bottom: 16px;
+}
 .amazing_layout{
   text-align: center;
   border: 1px solid #e4e4e4;
@@ -388,7 +391,7 @@ box-shadow: 0 0 15px #00000014;
   color: #232323;
   font-size:15px;
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   font-family: "Poppins", "sans-serif";
 }
 .amazing_layout_container .amazing_layout_text p{
@@ -396,7 +399,7 @@ box-shadow: 0 0 15px #00000014;
   font-size:13px;
   font-weight: 400;
   line-height: 25px;
-  font-family: "Poppins", "sans-serif";
+  font-family: "Roboto", "sans-serif";
 }
 .coffee_text_firt{
   width: 70%;
@@ -410,11 +413,50 @@ box-shadow: 0 0 15px #00000014;
 .coffee_text_firt.coffee_second h5{
   padding-top: 38px;
 }
+.coffee_text_firt.coffee_second{
+ overflow: hidden;
+
+}
+.swipe-button.btn{
+  font-size: 13px;
+  text-transform: uppercase;
+    line-height: normal;
+    padding: 13px 32px;
+    font-weight: 500;
+    border-radius: 0;
+    font-family: "Poppins", "sans-serif";
+}
+.swipe-button {  
+  padding: 12px 25px;  
+  color: #232323;  
+  background-color: transparent;  
+  font-size: 20px;  
+  position: relative;  
+  border: none;  
+  cursor: pointer;  
+  overflow: hidden;
+  margin-top: 38px;  
+}  
+.swipe-button::after {  
+  content: "";  
+  position: absolute;  
+  width: 100%;  
+  height: 100%;  
+  top: 0;  
+  left: -60%;  
+  background-color: #2ed47c;  
+  transition: left 0.3s ease;  
+  z-index: -1;
+}  
+.swipe-button:hover::after {  
+  left:0;  
+}
 .coffee_text_firt h2{
-  font-size: 45px; 
-  margin-bottom: 64px;
+  font-size: 32px;
+  margin-bottom: 34px;
   font-weight: 600;
   font-family: "Poppins", "sans-serif";
+  line-height: 44px;
 }
 .coffee_text_firt h5{
   font-size:15px; 
@@ -424,10 +466,20 @@ box-shadow: 0 0 15px #00000014;
 .coffee_text_firt p{
   font-size:15px; 
   color: #828282;
-  font-family: "Poppins", "sans-serif";
+  word-spacing:1px;
+  font-weight: 400;
+  line-height:30px;
+  font-family: "Roboto", "sans-serif";
 }
 .coffee_container{
   padding: 120px 0;
+}
+.accordion_container{
+  background-color: #f7f7f7;
+  padding: 120px 0;
+}
+.our_skill p{
+  padding:30px 0;
 }
 @media(max-width:992px){
   .carousel-caption.my_slider_body_text{
@@ -438,7 +490,7 @@ box-shadow: 0 0 15px #00000014;
   object-fit: cover;
 } 
 .coffee_text_firt h2{
-  font-size: 35px;
+
   margin: 64px 0 48px;
 }
 .coffee_text_firt{
@@ -453,7 +505,7 @@ box-shadow: 0 0 15px #00000014;
 
 
 .amazing_layout_container{
-  margin-top: 64px;
+  margin-top: 32px;
 }
 .business_process_perent .business_body_text .business_body_small p{
   width:80%;
@@ -533,10 +585,18 @@ box-shadow: 0 0 15px #00000014;
     width: 90%;
   }
   .progress_bar_container{
-    padding: 50px 0;
+    padding: 60px 0;
   }
   .coffee_container{
     padding:50px 0;
+  }
+  .amazing_layout{
+    background-color: #fff;
+    border-color: #0000;
+    box-shadow: 0 0 15px #00000014;
+  }
+  .highly_expertise p{
+    width: 100%;
   }
 }
 
@@ -596,9 +656,7 @@ box-shadow: 0 0 15px #00000014;
 .business_process_perent{
   padding-top: 50px;
 }
-.business_process_perent .business_body_text .business_body_small p{
-  width: 90%;
-}
+
 .highly_expertise h2{
   font-size: 24px;
 }

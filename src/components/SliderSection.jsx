@@ -8,7 +8,9 @@ import { BsBook } from "react-icons/bs";
 import bgImage from '../images/bg_image.png';
 import laptop from '../images/home-startup-business-process.png';
 import bgcoffee from '../images/Untitled design.png';
+import crft1 from '../images/DNA1.jpg'
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import Accordion from 'react-bootstrap/Accordion';
 
 
 function SliderSection(){
@@ -161,9 +163,6 @@ function SliderSection(){
           </Row>
           <div className="amazing_layout_container">
           <Row>
-            <Row>
-              <Col><div><h2></h2></div></Col>
-            </Row>
             <Col md={4} className="d-flex">
             <div className="amazing_layout">
             <div>
@@ -234,6 +233,50 @@ function SliderSection(){
           </div>
         </Container>
       </div>
+      <div className="accordion_container">
+        <Container>
+          <Row>
+            <Col md={12}>
+            <div className="our_skill">
+                <h2>Let Our Skills speak for Us</h2>
+                <p>A unique blend of concepts from the industry is hand picked and created as learning pathways in Technology Garage. Below are the various levels our students can achieve and get certified as they pass through every level.</p>
+              </div>
+            </Col>
+            <Col md={6}>
+              
+              <div>
+              <Accordion defaultActiveKey="0" flush>
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>Certified Technology Enthusiast</Accordion.Header>
+                  <Accordion.Body>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+         
+                </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="1">
+                <Accordion.Header>Becoming a Technology Evalgelist in Level 2</Accordion.Header>
+                  <Accordion.Body>
+                  Given the foundation is well built in Level 1, Level 2 focuses on taking a deep dive into Cloud Computing, Web and Mobile Technologies
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="2">
+                <Accordion.Header>Becoming a Technical Architect was tough, not anymore!</Accordion.Header>
+                  <Accordion.Body>
+                  Get introduced to Crypto-currency, Internet of Things, building solutions in Virtual Reality, deep dive into Google Analytics and more!
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+              </div>
+            </Col>
+            <Col md={6}>
+              <div>
+                <img src={crft1} alt="" className="img-fluid" />
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
       <div className="coffee_container">
         <Container>
           <Row className="align-items-center">
@@ -244,14 +287,12 @@ function SliderSection(){
             </Col>
             <Col md={6}>
               <div className="coffee_text_firt">
-                <h2>Hand crafted pixel perfect design</h2>
-                <h5>Scientific website optimization</h5>
-                <p>Lorem ipsum dolor sit consectetur adipiscing elit sed do eiusmod tempor incididunt.</p>
+                <h2>The most practical way to learn technology On Earth!</h2>
+                <p>Technology Garage has brought the world's top most gadgets, methodologies, and mechanisms together to make a fun learning experience. Learning pathways are designed to introduce the technical concepts slowly in a play-way methodology.</p>
               </div>
               
               <div className="coffee_text_firt coffee_second">
-                <h5>Scientific website optimization</h5>
-                <p>Lorem ipsum dolor sit consectetur adipiscing elit sed do eiusmod tempor incididunt.</p>
+                <a className="swipe-button btn" href="#">Contact Now</a>
               </div>
             </Col>
           </Row>
