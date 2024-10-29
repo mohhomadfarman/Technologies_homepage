@@ -11,8 +11,6 @@ function App() {
       <Header />
       <SliderSection/>
       <Footer/>
-      
-      
     </div>
     
   )

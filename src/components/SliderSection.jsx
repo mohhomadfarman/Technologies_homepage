@@ -4,14 +4,16 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { FaBeer } from 'react-icons/fa';
-import { BsBook } from "react-icons/bs";
+import { BsBook, BsInstagram } from "react-icons/bs";
+import { FaFacebookF } from "react-icons/fa6";
+import { MdOutlineEmail } from "react-icons/md";
 import bgImage from '../images/bg_image.png';
 import laptop from '../images/home-startup-business-process.png';
 import bgcoffee from '../images/Untitled design.png';
 import crft1 from '../images/DNA1.jpg'
-import ProgressBar from 'react-bootstrap/ProgressBar';
 import Accordion from 'react-bootstrap/Accordion';
-
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 function SliderSection(){
 
@@ -23,16 +25,16 @@ function SliderSection(){
         <Carousel.Item className="bg-overly my-inner-carausel">
         <img src="https://lithoreact.themezaa.com/assets/img/webp/home-startup-slider-bg-02.webp" alt="l,m" className="img-fluid " />
           <Carousel.Caption className="my_slider_body_text">
-            <h3>Combine thinking and technical</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Learn from scratch, all hands-on</h3>
+            <p>Finally, kids and parents agree on learning! Admissions and Summer Camp Enrollment now open!</p>
             <a href="#" className="my_slider_link">Get Started Now</a>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item className="bg-overly my-inner-carausel">
          <img src="https://lithoreact.themezaa.com/assets/img/webp/home-startup-slider-bg-03.webp" alt="l,m" className="img-fluid" />
           <Carousel.Caption className="my_slider_body_text">
-            <h3>Start your online business today</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Most practical way to learn technology!</h3>
+            <p>Finally, kids and parents agree on learning! Admissions and Summer Camp Enrollment now open!</p>
             <a href="#" className="my_slider_link">Get Started Now</a>
 
           </Carousel.Caption>
@@ -40,9 +42,9 @@ function SliderSection(){
         <Carousel.Item className="bg-overly my-inner-carausel">
         <img src="https://lithoreact.themezaa.com/assets/img/webp/home-startup-slider-bg-01.webp" alt="l,m" className="img-fluid" />
           <Carousel.Caption className="my_slider_body_text">
-            <h3>Delivering creative digital products</h3>
+            <h3>Learning Technology Gamified|</h3>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              Finally, kids and parents agree on learning! Admissions and Summer Camp Enrollment now open!
             </p>
             <a href="#" className="my_slider_link">Get Started Now</a>
           </Carousel.Caption>
@@ -134,19 +136,21 @@ function SliderSection(){
         <Row className="align-items-start justify-content-center provide_advance-row">
           <Col md={6}>
           <div className="provide_advance">
-          <h2>We provide advanced solutions to growin your online business</h2>
+          <h2>Our Summer Camp enrollment is now open!</h2>
           </div>
           </Col>
           <Col md={3}>
           <div className="build-site">
-          <h5>Build perfect websites</h5>
-          <p>Lorem ipsum dolor consectetur adipiscing elit eiusmod tempor elit eiusmod tempor.</p>
+          {/* <h5>Build perfect websites</h5> */}
+          <p>Technology Garage has brought the world's top most gadgets, methodologies, and 
+            mechanisms together to make a fun learning experience. Learning</p>
           </div>
           </Col>
           <Col md={3}>
           <div className="build-site">
-          <h5>Unique experiences</h5>
-          <p>Lorem ipsum dolor consectetur adipiscing elit eiusmod tempor elit eiusmod tempor.</p>
+          {/* <h5>Unique experiences</h5> */}
+          <p>pathways are designed 
+            to introduce the technical concepts slowly in a play-way methodology.</p>
           </div>
           </Col>
         </Row>
@@ -233,18 +237,40 @@ function SliderSection(){
           </div>
         </Container>
       </div>
+
+      <div className="coffee_container">
+        <Container>
+          <Row className="align-items-center">
+            <Col md={6}>
+              <div>
+                <img src={bgcoffee} alt="" className="img-fluid" />
+              </div>
+            </Col>
+            <Col md={6}>
+              <div className="coffee_text_firt">
+                <h2>The most practical way to learn technology On Earth!</h2>
+                <p>Technology Garage has brought the world's top most gadgets, methodologies, and mechanisms together to make a fun learning experience. Learning pathways are designed to introduce the technical concepts slowly in a play-way methodology.</p>
+              </div>
+              
+              <div className="coffee_text_firt coffee_second">
+                <a className="swipe-button btn" href="#">Contact Now</a>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
       <div className="accordion_container">
         <Container>
           <Row>
             <Col md={12}>
-            <div className="our_skill">
+            <div className="our_skill_heading our_skill">
                 <h2>Let Our Skills speak for Us</h2>
                 <p>A unique blend of concepts from the industry is hand picked and created as learning pathways in Technology Garage. Below are the various levels our students can achieve and get certified as they pass through every level.</p>
               </div>
             </Col>
             <Col md={6}>
               
-              <div>
+              <div className="my_custom_accordion">
               <Accordion defaultActiveKey="0" flush>
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>Certified Technology Enthusiast</Accordion.Header>
@@ -269,7 +295,7 @@ function SliderSection(){
               </div>
             </Col>
             <Col md={6}>
-              <div>
+              <div className="certificate_image">
                 <img src={crft1} alt="" className="img-fluid" />
               </div>
             </Col>
@@ -277,27 +303,7 @@ function SliderSection(){
         </Container>
       </div>
 
-      <div className="coffee_container">
-        <Container>
-          <Row className="align-items-center">
-            <Col md={6}>
-              <div>
-                <img src={bgcoffee} alt="" className="img-fluid" />
-              </div>
-            </Col>
-            <Col md={6}>
-              <div className="coffee_text_firt">
-                <h2>The most practical way to learn technology On Earth!</h2>
-                <p>Technology Garage has brought the world's top most gadgets, methodologies, and mechanisms together to make a fun learning experience. Learning pathways are designed to introduce the technical concepts slowly in a play-way methodology.</p>
-              </div>
-              
-              <div className="coffee_text_firt coffee_second">
-                <a className="swipe-button btn" href="#">Contact Now</a>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+
       <div className="business_process_perent overflow-hidden">
       <Container >
         <Row>
@@ -343,11 +349,80 @@ function SliderSection(){
         </Row>
       </Container>
       </div>
-      </section>
 
+      <div className="form_container">
+        <Container>
+          <Row className="justify-content-center align-items-start">
+            <Col md={11}>
+              <Row className="justify-content-center align-items-start form_inner_edite">
+              <Col md={12}>
+              <div className="lets_contact">
+                <h2>Let's Connect</h2>
+                <p>Our associates are available over Phone, WhatsApp, Email, in our physical location. Reach us out to elevate your learning experience!</p>
+              </div>
+              </Col>
+              <Col md={12} lg={6}>
+                <div className="form_first_side margin_frst_side">
+                <div className="office_address">
+              <h2>Our office info </h2>
+              <h5>Headquarters:</h5>
+              <p>Aclare Lane, Frisco, Texas <br/>
+                  United States Of America<br/>
+                  +1 6507660726</p>
+                  <h5>Regional Office:</h5>
+                  <p>36/1 Old Agraharam St. Thennur, Trichy<br/>
+                    India <br/>+91 7448427243</p>
+                    <h3>Connect with us</h3>
+            </div>
+            <div className="email_address">
+              <MdOutlineEmail/>
+              <p>admin@technology-garage.com</p>
+            
+            </div>
+            <div className="social_icon">
+            <a href=""> <span><BsInstagram/></span></a>
+            <a href=""> <span><FaFacebookF/></span></a>
+            </div>
+                </div>
+            </Col>
+            <Col md={12} lg={6}>
+            <div className="form_perent form_first_side">
+              <h2 className="enroll_giving">Enroll by giving us a Call/Message</h2>
+            <Form>
+                  <Row className="mb-3">
+                  <Form.Group className="mb-3" controlId="">
+                   <Form.Label>Name</Form.Label>
+                   <Form.Control placeholder="" />
+                 </Form.Group>
+                   <Form.Group controlId="formGridEmail">
+                      <Form.Label>Email</Form.Label>
+                      <Form.Control type="email" placeholder="" />
+                    </Form.Group>
+
+                    <Form.Group controlId="formGridPassword">
+                      <Form.Label>Password</Form.Label>
+                      <Form.Control type="password" placeholder="" />
+                    </Form.Group>
+                  </Row>
+                  <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                    <Form.Label>Message</Form.Label>
+                    <Form.Control as="textarea"/>
+                  </Form.Group>
+                  <Button variant="primary" className="form_btn" type="submit">
+                   Submit
+                  </Button>
+                </Form>
+            </div>
+            </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+      </section>
 
 
     )
 }
 
-export default SliderSection
+export default SliderSection;

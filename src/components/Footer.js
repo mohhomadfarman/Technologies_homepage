@@ -65,9 +65,9 @@ function Footer(){
             <Row>
                 <Col >
                     <div className='copyright'>
-                        <div>
+                        {/* <div>
                             <img src=""/>
-                        </div>
+                        </div> */}
                         <div>
                             <p>© 2024 Litho is Proudly Powered by 
                             ThemeZaa</p>

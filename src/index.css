@@ -14,6 +14,7 @@ code {
     monospace;
 }
 .footer_container{
+  background-color: #f7f7f7;
   padding: 120px 0 20px;
 }
 .footer h6{
@@ -50,7 +51,8 @@ code {
 }
 .copyright{
   display: flex;
-  justify-content: space-between;
+  justify-content:center ;
+  margin-top: 30px;
 }
 .copyright p{
   font-size: 15px;
@@ -74,10 +76,11 @@ code {
 .my-inner-carausel{
   height:730px;
 }
-/* .my-inner-carausel img{
+.my-inner-carausel img{
   height: 100%;
+  width: 100%;
   object-fit: cover;
-} */
+}
 .my_slider_link{
   color: #fff;
   font-size: 14px;
@@ -250,6 +253,7 @@ box-shadow: 0 0 15px #00000014;
   line-height: 3rem;
   margin-bottom: 25px;
   font-family: "Poppins", sans-serif;
+  width: 95%;
 }
 .build-site h5{
   color: #232323;
@@ -270,7 +274,7 @@ box-shadow: 0 0 15px #00000014;
 }
 
 .business_process_perent{
-  background-color: #f7f7f7;
+  background-color: #ffff;
   padding: 120px 0;
 
 }
@@ -481,6 +485,140 @@ box-shadow: 0 0 15px #00000014;
 .our_skill p{
   padding:30px 0;
 }
+.our_skill_heading{
+  text-align: center;
+  margin-bottom: 30px;
+}
+.certificate_image img{
+border-radius: 10px;
+    box-shadow: 0 0 9px 1px #d3d3d3;
+}
+.my_custom_accordion .accordion-button{
+  font-size: 15px;
+    font-weight: 500;
+    color: #232323;
+    font-family: "Roboto", "sans-serif";
+}
+.my_custom_accordion .accordion-button:not(.collapsed) {
+  color:#232323;
+  background-color: #2ed47b64;
+  box-shadow: inset 0 calc(-1* var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+}
+.my_custom_accordion .accordion-button:focus{
+  box-shadow: unset;
+}
+.my_custom_accordion .accordion-body{
+  color: #828282;
+  font-size: 15px;
+  font-family: "Roboto", "sans-serif";
+}
+
+.form_container{
+  padding: 120px 0;
+}
+.form_perent .enroll_giving{
+  font-size: 24px;
+  color: #232323;
+  padding-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+}
+.office_address h2{
+  font-size:24px;
+  color: #232323;
+  padding-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+}
+.office_address h5{
+  font-size: 15px;
+  color: #232323;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  margin-top:35px;
+}
+.office_address p{
+  font-size:15px;
+  color: #828282;
+}
+.office_address h3{
+  font-size:24px;
+  color: #232323;
+  margin:40px 0 20px 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.email_address{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.email_address p{
+  margin: 0;
+}
+
+.social_icon{
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.social_icon span{
+  background-color: #00b057;
+  
+    padding:12px;
+    border-radius: 50%;
+    display: flex;
+    border: 1px solid #00b057;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+.social_icon span:hover{
+  background-color: transparent;
+}
+.social_icon span svg{
+  fill: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.social_icon span:hover svg{
+  fill: #232323;
+}
+.form_container .form_btn{
+  color: #232323;
+  background-color:transparent;
+  border: 1px solid #00b057;
+  padding: 8px 30px;
+}
+.form_container .form_btn:hover{
+  color: #fff;
+  background-color:#00b057;
+  border-color: #00b057;
+}
+.form_inner_edite{
+  padding:80px;
+  box-shadow: 0 0 20px 16px #f4f4f4;
+}
+.form_first_side{
+  padding: 40px;
+  border: 1px solid #dfdfdf;
+  border-radius:10px;
+}
+.form_container .lets_contact{
+  text-align: center;
+  margin-bottom:50px;
+}
+.form_container .lets_contact h2{
+  font-size: 35px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+.form_container .lets_contact p{
+  font-size: 15px;
+  color: #828282;
+  font-weight: 400;
+  margin-top: 5px;
+  margin-bottom: 0;
+  font-family: "Roboto", sans-serif;
+}
 @media(max-width:992px){
   .carousel-caption.my_slider_body_text{
     width: 100%;
@@ -518,6 +656,9 @@ box-shadow: 0 0 15px #00000014;
 }
 .business_process_perent{
   padding:50px 0;
+}
+.form_first_side.margin_frst_side{
+  margin-bottom: 30px;
 }
 
 }
@@ -598,6 +739,27 @@ box-shadow: 0 0 15px #00000014;
   .highly_expertise p{
     width: 100%;
   }
+  .my_custom_accordion{
+    margin-bottom: 30px;
+  }
+  .provide_advance h2{
+    width: 100%;
+  }
+  .form_container{
+    padding: 60px 0;
+  }
+  .form_first_side{
+    padding: 28px 12px;
+  }
+  .form_inner_edite{
+    padding: 40px 0;
+  }
+  .form_first_side.margin_frst_side{
+    margin-bottom: 30px;
+  }
+  .form_inner_edite{
+    box-shadow: unset;
+  }
 }
 
 @media(max-width: 575px){
@@ -637,7 +799,7 @@ box-shadow: 0 0 15px #00000014;
 }
 
 .build-site{
-  margin-bottom: 2.5rem;
+  margin-bottom:0;
 }
 .build-site{
   text-align: center;
@@ -651,7 +813,7 @@ box-shadow: 0 0 15px #00000014;
   
 }
 .provide_advance-row{
-  padding-bottom: 10px;
+  padding-bottom: 60px;
 }
 .business_process_perent{
   padding-top: 50px;
