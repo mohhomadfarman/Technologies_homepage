@@ -203,9 +203,9 @@ const DesignagencyPage = (props) => {
                         <Col className="col-5 col-lg-2 ps-lg-0 me-auto me-lg-0">
                             <Link aria-label="header logo" className="flex items-center" to="/">
                                 <Navbar.Brand className="inline-block p-0 m-0">
-                                    <img className="default-logo" width="111" height="36" loading="lazy" src='/assets/img/webp/logo-black.webp' data-rjs='/assets/img/webp/logo-black@2x.webp' alt='logo' />
-                                    <img className="alt-logo" width="111" height="36" loading="lazy" src='/assets/img/webp/logo-black.webp' data-rjs='/assets/img/webp/logo-black@2x.webp' alt='logo' />
-                                    <img className="mobile-logo" width="111" height="36" loading="lazy" src='/assets/img/webp/logo-black.webp' data-rjs='/assets/img/webp/logo-black@2x.webp' alt='logo' />
+                                    <img className="default-logo" style={{maxHeight:100}} width="200" height="60" loading="lazy" src='/assets/img/garage.png' data-rjs='/assets/img/webp/logo-black@2x.webp' alt='logo' />
+                                    <img className="alt-logo" width="111" height="36" loading="lazy" src='/assets/img/garage.png' data-rjs='/assets/img/webp/logo-black@2x.webp' alt='logo' />
+                                    <img className="mobile-logo" width="111" height="36" loading="lazy" src='/assets/img/garage.png' data-rjs='/assets/img/webp/logo-black@2x.webp' alt='logo' />
                                 </Navbar.Brand>
                             </Link>
                         </Col>
@@ -218,8 +218,13 @@ const DesignagencyPage = (props) => {
                         <Navbar.Collapse className="justify-center">
                             <Menu {...props} />
                         </Navbar.Collapse>
-                        <Col className="col-auto col-lg-2 text-end px-lg-0">
-                            <SocialIcons theme="social-icon-style-01 block text-end" iconColor="dark" size="xs" data={HeaderSocialIconsData} />
+                        <Col className="col-lg-2 text-end px-lg-0">
+                            <div>
+                                <a href=""className="py-[8px] px-[20px] font-medium text-[14px] rounded-none font-serif border-black border-2 uppercase text-[white] bg-[#232323] hover:bg-[transparent] hover:text-[#232323] md:mb-[15px]" >Register</a>
+                                {/* <Buttons ariaLabel="Pricing packages" to="/page/pricing-packages" className="mt-[20px] font-medium rounded-none font-serif uppercase bg-neutral-900 hover:text-#000 md:mb-[15px]" color="white" size="md" themeColor="white" title="Contact Us" /> */}
+
+                           
+                            </div>
                         </Col>
                     </HeaderNav>
                 </Header>
@@ -232,8 +237,8 @@ const DesignagencyPage = (props) => {
                     
                     <Container className="relative">
                         <Row className="full-screen md:h-[650px] sm:h-[500px]">
-                            <Col lg={5} md={6} sm={7} className="flex flex-col items-start justify-center">
-                                <h1 className="font-serif font-semibold text-[100px] leading-[95px] text-darkgray -tracking-[4px] mb-[4.5rem] xs:w-[65%] lg:text-[90px] lg:leading-[90px] md:text-[70px] md:leading-[65px] sm:text-[45px] sm:leading-[43px] sm:-tracking-[.5px]">We are creative agency</h1>
+                            <Col lg={7} md={6} sm={7} className="flex flex-col items-start justify-center">
+                                <h1 className="font-serif font-semibold text-[90px] leading-[95px] text-darkgray -tracking-[4px] mb-[4.5rem] xs:w-[85%] lg:text-[80px] lg:leading-[90px] md:text-[60px] md:leading-[65px] sm:text-[35px] sm:leading-[43px] sm:-tracking-[.5px]">Most practical way to learn technology!</h1>
                                 <p className='mb-4'>Finally, kids and parents agree on learning! Admissions and Summer Camp Enrollment now open!</p>
                                 <Buttons ariaLabel="Get started now" to="/page/contact-classic" className="font-semibold font-serif z-10 uppercase btn-expand rounded md:mb-[15px] hover:text-darkgray" size="xl" color="#232323" themeColor="#fff" title="Get started now" />
                             </Col>
