@@ -299,31 +299,7 @@ const DesignagencyPage = (props) => {
                             </m.div>
                             </div>
                             </Col>
-                        <Col xl={3} lg={{ span: 5}} md={7}>
-                                
-                                <IconWithText grid="flex-col gap-y-[4.5rem]" theme="icon-with-text-08" data={IconWithTextData_08} animation={fadeInLeft} animationDelay={0.4} />
-                            </Col>
-                            <Col lg={4} className="icon-with-texts relative flex items-center">
-                                <img className="w-full mx-auto" width={476} height={652} src='https://via.placeholder.com/476x652' alt="" />
-                                {/* Modal Component Start */}
-                                <CustomModal.Wrapper
-                                    modalBtn={
-                                        <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
-                                            <Buttons ariaLabel="modal btn" type="submit" className="btn-sonar border-0" themeColor="#fff" color="#232323" size="lg" title={<i className="icon-control-play text-[26px]" />} />
-                                        </div>
-                                    } >
-                                    <div className="w-[1020px] max-w-full relative rounded mx-auto">
-                                        <div className="fit-video">
-                                            <iframe width="100%" height="100%" className="shadow-[0_0_8px_rgba(0,0,0,0.06)]" controls src="https://www.youtube.com/embed/g0f_BRYJLJE?autoplay=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen ></iframe>
-                                        </div>
-                                    </div>
-                                </CustomModal.Wrapper>
-                                {/* Modal Component End */}
-                            </Col>
-                            <Col xl={3} lg={{ span: 5 }} md={7}>
-                                {/* <m.h2 className="heading-4 font-serif font-semibold text-darkgray mb-[4.5rem] -tracking-[.5px] md:text-center" {...{ ...fadeInLeft, transition: { delay: 0.2, duration: 0.6 } }}>Browse amazing design services!</m.h2> */}
-                                <IconWithText grid="flex-col gap-y-[4.5rem]" theme="icon-with-text-08" data={IconWithTextData_080} animation={fadeInLeft} animationDelay={0.4} />
-                            </Col>
+                        
                         </Row>
                         <Row>
             <Col md={4} className="d-flex mt-5">
@@ -415,7 +391,9 @@ const DesignagencyPage = (props) => {
                                 <Buttons ariaLabel="Pricing packages" to="/page/pricing-packages" className="mt-[20px] font-medium rounded-none font-serif uppercase btn-transparent hover:text-white md:mb-[15px]" color="#232323" size="lg" themeColor="#232323" title="Contact Us" />
                             </Col>
                             <Col xl={{ span: 6, offset: 2 }} lg={7} className="md:pl-[25px] md:pr-[35px] sm:px-[15px]">
-                                <PricingTable02 grid="row-cols-1 row-cols-md-2 justify-center items-center gap-y-[30px]" theme="pricing-table-style-02 xs:px-[15px]" data={pricingTable} />
+                               <div>
+                                <img src="/assets/img/combine.png" className='img-fluid' alt="" />
+                               </div>
                             </Col>
                         </m.div>
                         <Row className="items-center justify-center mt-40 md:mt-28">
@@ -424,7 +402,9 @@ const DesignagencyPage = (props) => {
                                 <span className="font-serif font-medium text-[24px] leading-[30px] text-darkgray inline-block w-[80%] md:text-xmd md:leading-[22px]">Our devices are from the best of the world!.</span>
                             </m.div>
                             <Col lg={{ span: 6, order: 2 }} md={8} className="p-0 order-3">
-                                <m.img className="w-full" width={585} height={340} src="https://via.placeholder.com/587x341" alt="" {...fadeIn} />
+                                <div className='d-flex align-center justify-center'>
+                                <m.img className="img-fluid rounded-lg"  src="/assets/img/center-image.webp" alt="" {...fadeIn} />
+                                </div>
                             </Col>
                             <m.div className="md:mb-20 xs:mb-28 md:text-center col-lg-3 col-md-5 col-sm-6 order-lg-3 order-2" {...fadeInRight}>
                                 <i className="fas fa-quote-left text-[28px] block opacity-30 mb-[25px]"></i>
@@ -436,11 +416,11 @@ const DesignagencyPage = (props) => {
                 {/* Section End */}
 
                 {/* Section Start */}
-                <section className="py-[160px] overflow-hidden lg:py-[120px] md:py-[95px] sm:py-[80px] xs:py-[50px]">
+                {/* <section className="py-[160px] overflow-hidden lg:py-[120px] md:py-[95px] sm:py-[80px] xs:py-[50px]">
                     <Container>
                         <Clients grid="row-cols-1 row-cols-sm-2 row-cols-md-4" theme="client-logo-style-06 light" data={ClientData} animation={fadeIn} />
                     </Container>
-                </section>
+                </section> */}
                 {/* Section End */}
 
                 {/* Section Start */}
@@ -568,9 +548,9 @@ const DesignagencyPage = (props) => {
                     <Row>
                         <Col className="xl:text-left md:text-center last:m-0 md:mt-[25px]" lg={{ span: 3, order: 1 }} md={{ span: 12, order: 3 }} xs={{ span: 12, order: 3 }}>
                             <Link aria-label="footer home link" to="/" className="text-slateblue mb-[10px] md:mb-[5px] md:mt-0 inline-block">
-                                <img src="/assets/img/webp/logo-black.webp" alt="logo" width={111} height={36} />
+                                <img src='/assets/img/garage.png' alt="logo" width={111} height={36} />
                             </Link>
-                            <p>© Copyright {new Date().getFullYear()} <a aria-label="footer litho link" href="/" className="underline underline-offset-4 text-black font-medium hover:text-white">Litho</a></p>
+                            <p>© Copyright {new Date().getFullYear()} <a aria-label="footer litho link" href="/" className="underline underline-offset-4 text-black font-medium hover:text-white">Technology Garage</a></p>
                         </Col>
                         <Col lg={{ order: 2 }} md={{ span: 6, order: 1 }} xs={{ span: 12, order: 1 }} className="text-center items-center flex flex-col md:items-start sm:mb-[50px] sm:items-center xs:mb-[30px]">
                             <span className="mb-[25px] block sm:w-full md:text-start md:w-4/5 sm:text-center leading-none md:leading-normal">
