@@ -1,6 +1,6 @@
 import React from 'react'
 import tourVideo from '../../Assets/img/Tour_of_Technology_Garage_2.mp4';
-
+import Accordion from 'react-bootstrap/Accordion';
 // Libraries
 import { Col, Container, Navbar, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
@@ -266,7 +266,7 @@ const DesignagencyPage = (props) => {
                                 
                             </m.div>
                             <Col lg={3} className="md:mb-[25px] sm:mb-[15px] lg:px-0 text-center">
-                            <Buttons ariaLabel="Get started now" to="/page/contact-classic" className="font-semibold font-serif z-10 uppercase btn-expand rounded md:mb-[15px] hover:text-darkgray" size="xl" color="#232323" themeColor="#fff" title="Get started now" />
+                            <Buttons ariaLabel="Get started now" to="/page/contact-classic" className="font-semibold font-serif z-10 uppercase btn-expand rounded md:mb-[15px] hover:text-darkgray" size="xl" color="#232323" themeColor="#828282" title="Get started now" />
                                 {/* <m.span className="font-serif font-semibold text-[100px] leading-[95px] text-[#ffcc2e] -tracking-[5px] sm:-tracking-[1.5px] lg:text-[90px] md:text-[70px] sm:text-[45px] sm:leading-none" {...{ ...fadeIn, transition: { duration: .7 } }}>hello<span className="text-darkgray">.</span></m.span> */}
                             </Col>
                         </Row>
@@ -396,7 +396,7 @@ const DesignagencyPage = (props) => {
                                </div>
                             </Col>
                         </m.div>
-                        <Row className="items-center justify-center mt-40 md:mt-28">
+                        <Row className="items-center justify-center my-40 md:my-28 ">
                             <m.div className="text-right md:mb-20 xs:mb-16 md:text-center col-lg-3 col-md-5 col-sm-6 order-1" {...fadeInLeft}>
                                 <i className="fas fa-quote-right text-[28px] block opacity-30 mb-[25px]"></i>
                                 <span className="font-serif font-medium text-[24px] leading-[30px] text-darkgray inline-block w-[80%] md:text-xmd md:leading-[22px]">Our devices are from the best of the world!.</span>
@@ -444,7 +444,55 @@ const DesignagencyPage = (props) => {
                 {/* Section End */}
 
                 {/* Section Start */}
-                <section className="py-[160px] overflow-hidden bg-no-repeat bg-right lg:py-[120px] md:py-[95px] sm:py-[80px] xs:py-[50px]" style={{ backgroundImage: `url('https://via.placeholder.com/653x323')` }}>
+                <section className="py-[160px] overflow-hidden bg-no-repeat bg-right lg:py-[120px] md:py-[95px] sm:py-[80px] xs:py-[50px]">
+                <Container>
+                        <Row>
+                            <Col lg={12}>
+                            <div className='text-center '>
+                            <m.h2 className="heading-4 pl-4  font-serif font-medium text-darkgray -tracking-[1px] inline-block" {...fadeInRight}>Let Our Skills speak for Us</m.h2>
+                            <m.div className=""  {...{ ...fadeIn, transition: { duration: .7, delay: 0.7 } }}>
+                                <p className="w-[100%] mb-[65px] pr-2 text-start lg:w-full text-center">A unique blend of concepts from the industry is hand picked and created as learning pathways in Technology Garage. Below are the various levels our students can achieve and get certified as they pass through every level.</p>
+                                
+                            </m.div>
+                            </div>
+                            </Col>
+                            <Col lg={5} md={12}>
+                                <Accordion defaultActiveKey="0">
+                                    <Accordion.Item eventKey="0">
+                                        <Accordion.Header>Accordion Item #1</Accordion.Header>
+                                            <Accordion.Body>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                                culpa qui officia deserunt mollit anim id est laborum.
+                                            </Accordion.Body>
+                                    </Accordion.Item>
+                                    <Accordion.Item eventKey="1">
+                                        <Accordion.Header>Accordion Item #2</Accordion.Header>
+                                        <Accordion.Body>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                            culpa qui officia deserunt mollit anim id est laborum.
+                                        </Accordion.Body>
+                                    </Accordion.Item>
+                                    <Accordion.Item eventKey="2">
+                                        <Accordion.Header>Accordion Item #2</Accordion.Header>
+                                        <Accordion.Body>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                            culpa qui officia deserunt mollit anim id est laborum.
+                                        </Accordion.Body>
+                                    </Accordion.Item>
+                                </Accordion>
+                            </Col>
+                            <Col lg={7} md={12}>
+                            <div>
+                                <img src="./assets/img/DNA1.jpg" alt="" className='img-fluid rounded-lg'  />
+                            </div>
+                            </Col>
+                        </Row>
+                    </Container>
+                </section>
+                <section className="py-[160px] overflow-hidden bg-no-repeat bg-right lg:py-[120px] md:py-[95px] sm:py-[80px] xs:py-[50px]" style={{ backgroundImage: `url('https://dryycleaner.in/wp-content/uploads/2024/09/row-bgimage-1-1.png')` }}>
+                    
+                    
+                    
                     <Container>
                         <m.div className="row items-center">
                             {/* <m.div className="col-12 col-lg-3 md:mb-16 xs:mb-12" {...fadeInRight}>
@@ -487,50 +535,50 @@ const DesignagencyPage = (props) => {
                 <div className="">
                 <m.h4 className="heading-5 text-[24px] font-serif font-semibold text-darkgray  -tracking-[.5px] md:text-center" {...{ ...fadeIn, transition: { delay: 0.2, duration: 0.6 } }}>Our office info</m.h4>
                 <m.h4 className="heading-5 text-[15px] font-serif mb-0 font-semibold text-darkgray  -tracking-[.5px] md:text-center" {...{ ...fadeIn, transition: { delay: 0.2, duration: 0.6 } }}>Headquarters:</m.h4>
-              <p className='mb-4'>Aclare Lane, Frisco, Texas <br/>
+              <p className='mb-3 md:text-center' >Aclare Lane, Frisco, Texas <br/>
                   United States Of America<br/>
                   +1 6507660726</p>
 
                   <m.h4 className="heading-5 text-[15px] font-serif mb-0 font-semibold text-darkgray  -tracking-[.5px] md:text-center" {...{ ...fadeIn, transition: { delay: 0.2, duration: 0.6 } }}>Regional Office:</m.h4>
-                  <p>36/1 Old Agraharam St. Thennur, Trichy<br/>
+                  <p className='mb-3 md:text-center'>36/1 Old Agraharam St. Thennur, Trichy<br/>
                     India <br/>+91 7448427243</p>
                     <m.h4 className="heading-5 text-[24px] mb-0 font-serif font-semibold text-darkgray  -tracking-[.5px] md:text-center" {...{ ...fadeIn, transition: { delay: 0.2, duration: 0.6 } }}>Connect with us</m.h4>
             </div>
-            <div className="d-flex items-center gap-2">
+            <div className='mb-3'>
+            <div className="d-flex items-center gap-2 md:justify-center">
               <MdOutlineEmail/>
               <p>admin@technology-garage.com</p>
             
             </div>
-            <div className="d-flex gap-2">
+            <div className="d-flex gap-2 md:justify-center">
             <a href=""> <span><BsInstagram/></span></a>
             <a href=""> <span><FaFacebookF/></span></a>
+            </div>
             </div>
                 </div>
             </Col>
             <Col md={12} lg={6}>
             <div className="perent first_side">
-            <m.h4 className="heading-5 text-[24px] mb-0 font-serif font-semibold text-darkgray  -tracking-[.5px] md:text-center" {...{ ...fadeIn, transition: { delay: 0.2, duration: 0.6 } }}>Enroll by giving us a Call/Message</m.h4>
+            <m.h4 className="heading-5 text-[24px] font-serif font-semibold text-darkgray  -tracking-[.5px] md:text-center" {...{ ...fadeIn, transition: { delay: 0.2, duration: 0.6 } }}>Enroll by giving us a Call/Message</m.h4>
               
             <div>
                   <Row className="mb-3">
                   <div className="mb-3" >
-                   <label>Name</label>
-                   <input type="text" className="form-control" placeholder="First name" aria-label="First name" />
+                   <label className='text-[#232323]' my-1>Name</label>
+                   <input type="text" className="form-control"  aria-label="First name" />
                  </div>
                    <div controlId="GridEmail">
-                      <label>Email</label>
+                      <label className='text-[#232323] my-1'>Email</label>
                       <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
                     </div>
                     <div className="mb-3" >
-                    <label for="floatingTextarea2">Comments</label>
+                    <label for="floatingTextarea2" className='text-[#232323] my-1'>Comments</label>
                     <textarea class="form-control"></textarea>
                     
                   </div>
                   </Row>
                   
-                  <Button variant="primary" className="btn" type="submit">
-                   Submit
-                  </Button>
+                  <a href=""className="py-[8px] px-[20px] font-medium text-[13px] rounded-none font-serif border-black border-2 uppercase text-[white] bg-[#232323] hover:bg-[transparent] hover:text-[#232323] md:mb-[15px]" >Submit</a>
                 </div>
             </div>
             </Col>
