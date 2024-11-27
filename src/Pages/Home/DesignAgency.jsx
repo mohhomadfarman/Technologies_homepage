@@ -403,7 +403,7 @@ const DesignagencyPage = (props) => {
                             </m.div>
                             <Col lg={{ span: 6, order: 2 }} md={8} className="p-0 order-3">
                                 <div className='d-flex align-center justify-center'>
-                                <m.img className="img-fluid rounded-lg"  src="/assets/img/center-image.webp" alt="" {...fadeIn} />
+                                <m.img className="img-fluid rounded-lg border-1 "  src="/assets/img/center-image.webp" alt="" {...fadeIn} />
                                 </div>
                             </Col>
                             <m.div className="md:mb-20 xs:mb-28 md:text-center col-lg-3 col-md-5 col-sm-6 order-lg-3 order-2" {...fadeInRight}>
@@ -427,16 +427,23 @@ const DesignagencyPage = (props) => {
                 <m.section className="py-[130px] bg-lightgray overflow-hidden lg:py-[90px] md:py-[75px] sm:py-[50px]" {...fadeIn}>
                     <Container>
                         <Row className="items-center">
-                            <Col sm={6}>
-                                <h2 className="heading-4 font-serif font-semibold text-darkgray mb-0 -tracking-[1px] xs:text-center">Interesting articles</h2>
-                            </Col>
-                            <Col sm={6} className="text-right xs:text-center">
-                                <Buttons ariaLabel="all articles" to="/blogs/blog-masonry" className="font-medium font-serif uppercase btn-link after:h-[2px] md:mb-[15px] after:bg-darkgray hover:text-darkgray" color="#232323" title="all articles" size="xlg" />
+                            <Col>
+                                <h2 className="heading-4 font-serif font-semibold text-darkgray -tracking-[1px] text-center">Our Studio Setup</h2>
+                                <m.div className=""  {...{ ...fadeIn, transition: { duration: .7, delay: 0.7 } }}>
+                                <p className="w-[100%] mb-[65px] pr-2 text-start lg:w-full text-center">A unique blend of concepts from the industry is hand picked and created as learning pathways in Technology Garage. Below are the various levels our students can achieve and get certified as they pass through every level.</p>
+                                
+                            </m.div>
                             </Col>
                         </Row>
                         <Row>
-                            <Col className="px-sm-0">
-                                <BlogMasonry pagination={false} grid="mt-28 md:mt-12 grid grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-double-extra-large" className="design-agency-blog-masonry" data={blogMasonryData} />
+                            <Col sm={12} md={4} lg={4}>
+                                <div><img src="./assets/img/SAT_1.jpeg" alt="" /></div>
+                            </Col>
+                            <Col sm={12} md={4} lg={4}>
+                                <div><img src="./assets/img/SAT_2.jpeg" alt="" /></div>
+                            </Col>
+                            <Col sm={12} md={4} lg={4}>
+                                <div><img src="./assets/img/SAT_3.jpeg" alt="" /></div>
                             </Col>
                         </Row>
                     </Container>
@@ -449,9 +456,9 @@ const DesignagencyPage = (props) => {
                         <Row>
                             <Col lg={12}>
                             <div className='text-center '>
-                            <m.h2 className="heading-4 pl-4  font-serif font-medium text-darkgray -tracking-[1px] inline-block" {...fadeInRight}>Let Our Skills speak for Us</m.h2>
+                            <m.h2 className="heading-4 font-serif font-medium text-darkgray -tracking-[1px] inline-block" {...fadeInRight}>Let Our Skills speak for Us</m.h2>
                             <m.div className=""  {...{ ...fadeIn, transition: { duration: .7, delay: 0.7 } }}>
-                                <p className="w-[100%] mb-[65px] pr-2 text-start lg:w-full text-center">A unique blend of concepts from the industry is hand picked and created as learning pathways in Technology Garage. Below are the various levels our students can achieve and get certified as they pass through every level.</p>
+                                <p className="w-[100%] mb-[65px] text-center">A unique blend of concepts from the industry is hand picked and created as learning pathways in Technology Garage. Below are the various levels our students can achieve and get certified as they pass through every level.</p>
                                 
                             </m.div>
                             </div>
@@ -459,31 +466,28 @@ const DesignagencyPage = (props) => {
                             <Col lg={5} md={12}>
                                 <Accordion defaultActiveKey="0">
                                     <Accordion.Item eventKey="0">
-                                        <Accordion.Header>Accordion Item #1</Accordion.Header>
-                                            <Accordion.Body>
+                                        <Accordion.Header> <span className='text-[15px] font-semibold leading-6'>Accordion Item #1</span> </Accordion.Header>
+                                            <Accordion.Body className='text-[#828282]'>
                                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                                 culpa qui officia deserunt mollit anim id est laborum.
                                             </Accordion.Body>
                                     </Accordion.Item>
                                     <Accordion.Item eventKey="1">
-                                        <Accordion.Header>Accordion Item #2</Accordion.Header>
-                                        <Accordion.Body>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                            culpa qui officia deserunt mollit anim id est laborum.
+                                        <Accordion.Header ><span className='text-[15px] font-semibold leading-6 '>Becoming a Technology Evalgelist in Level 2</span></Accordion.Header>
+                                        <Accordion.Body className='text-[#828282]'>
+                                        Given the foundation is well built in Level 1, Level 2 focuses on taking a deep dive into Cloud Computing, Web and Mobile Technologies
                                         </Accordion.Body>
                                     </Accordion.Item>
                                     <Accordion.Item eventKey="2">
-                                        <Accordion.Header>Accordion Item #2</Accordion.Header>
-                                        <Accordion.Body>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                            culpa qui officia deserunt mollit anim id est laborum.
+                                        <Accordion.Header> <span className='text-[15px] font-semibold leading-6'>Becoming a Technical Architect was tough, not anymore!</span> </Accordion.Header>
+                                        <Accordion.Body className='text-[#828282]'>Get introduced to Crypto-currency, Internet of Things, building solutions in Virtual Reality, deep dive into Google Analytics and more!
                                         </Accordion.Body>
                                     </Accordion.Item>
                                 </Accordion>
                             </Col>
                             <Col lg={7} md={12}>
                             <div>
-                                <img src="./assets/img/DNA1.jpg" alt="" className='img-fluid rounded-lg'  />
+                                <img src="./assets/img/DNA1.jpg" alt="" className='img-fluid rounded-lg shadow-[0_0_16px_0_#cecece] md:mt-[50px]'  />
                             </div>
                             </Col>
                         </Row>
@@ -578,7 +582,7 @@ const DesignagencyPage = (props) => {
                   </div>
                   </Row>
                   
-                  <a href=""className="py-[8px] px-[20px] font-medium text-[13px] rounded-none font-serif border-black border-2 uppercase text-[white] bg-[#232323] hover:bg-[transparent] hover:text-[#232323] md:mb-[15px]" >Submit</a>
+                  <a href=""className="py-[8px] px-[20px] font-medium text-[13px] rounded-none font-serif border-black border-2 uppercase text-[white] bg-[#232323] hover:bg-[transparent] hover:text-[#232323] md:mb-[15px]" >Send Now</a>
                 </div>
             </div>
             </Col>
