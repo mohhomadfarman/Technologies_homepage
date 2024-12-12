@@ -23,13 +23,13 @@ import { Footer } from "../../Components/Footers/Footer";
 import SideButtons from "../../Components/SideButtons";
 import { resetForm, sendEmail } from "../../Functions/Utilities";
 
-import { IconWithTextData_05 } from "../../Components/IconWithText/IconWithTextData";
 
 import CommonModal from "../../Components/CommonModal";
 import FormComp from "../../Components/FormComp";
 import Header from "../../Components/Header";
 import { accordionData, services, skillsData } from "./homeData";
 import LineText from "../../Components/LineText";
+import { IconWithTextData_05 } from "../../Components/IconWithText/IconWithTextData";
 
 const FooterSocialIconData = [
   {
@@ -73,6 +73,7 @@ const DesignagencyPage = (props) => {
       <div className="bg-white" style={props.style}>
         <SideButtons />
         {/* Header Start */}
+        <div className="row sm:h-[100vh]">
         <Header />
           <LineText onPress={handleShow}/>
         {/* Section Start */}
@@ -81,39 +82,43 @@ const DesignagencyPage = (props) => {
             className="lg-no-parallax bg-cover absolute top-[0px] left-0 md:-top-[30px] w-full h-[100vh]"
             translateY={[-40, 40]}
             style={{
-              backgroundImage: `url(/assets/img/image.png)`,
+              backgroundImage: `url(/assets/img/Ai-is-not.png)`,
             }}
           ></Parallax>
           <div
             className="h-full w-full left-0 top-0 absolute cover-background brightness-50"
             style={{
-              backgroundImage: `url(/assets/img/image.png)`,
+              backgroundImage: `url(/assets/img/Ai-is-not.png)`,
             }}
           ></div>
 
           <Container className="relative">
-            <Row className="full-screen md:h-[650px] sm:h-[500px]">
+            <Row className="full-screen md:h-[650px] ">
               <Col
                 lg={7}
                 md={6}
                 sm={7}
                 className="flex flex-col items-start justify-center"
               >
-                <h1 className="font-serif font-semibold text-[90px] leading-[95px] text-white drop-shadow -tracking-[4px] mb-[4.5rem] xs:w-[85%] lg:text-[80px] lg:leading-[90px] md:text-[60px] md:leading-[65px] sm:text-[35px] sm:leading-[43px] sm:-tracking-[.5px]">
-                  Most practical way to learn technology!
+                <h1 className="font-serif font-semibold text-[80px] leading-[95px] text-white drop-shadow -tracking-[4px] mb-[4.5rem] xs:w-[85%] lg:text-[80px] lg:leading-[90px] md:text-[50px] md:leading-[65px] sm:text-[35px] sm:leading-[43px] sm:-tracking-[.5px]">
+                  AI is not in the<br/>
+                  Future !!<br/>
+                  It's happening<br/>
+                  NOW !!<br/>
                 </h1>
-                <p className="mb-4 text-white">
-                  Finally, kids and parents agree on learning! Admissions and
-                  Summer Camp Enrollment now open!
+                <p className="text-white font-medium">
+                  Artificial Intelligence isn't just the future !! it's here today ! it's changing how we work, play and connect.
+                  </p>
+                  <p className="mb-5 text-white font-medium">Start your AL journey now and embrace the possibilities !
                 </p>
                 <Buttons
+                
                   ariaLabel="Get started now"
                   to="/page/contact-classic"
-                  className="font-semibold font-serif z-10 uppercase btn-expand rounded md:mb-[15px] hover:text-white"
-                  size="xl"
+                  className="font-semibold text-[30px] font-serif z-10 uppercase btn-expand rounded md:mb-[15px] hover:text-white"
                   color="#fff"
-                  themeColor="black"
-                  title="Get started now"
+                  themeColor="#828282"
+                  title="Get started"
                 />
               </Col>
             </Row>
@@ -128,25 +133,79 @@ const DesignagencyPage = (props) => {
               duration={800}
               className="section-link block w-[2px] h-[35px] bg-white mx-auto right-0 left-0 absolute cursor-pointer"
             >
-              <span className="text-darkgray absolute font-serif font-semibold tracking-[-.5px] bottom-[25px] w-[100px] h-auto mb-[5px] -rotate-90 origin-[0] hover:text-darkgray">
+              <span className="text-white absolute font-serif font-semibold tracking-[-.5px] bottom-[25px] w-[100px] h-auto mb-[5px] -rotate-90 origin-[0] hover:text-darkgray">
                 scroll
               </span>
             </ScrollTo>
           </div>
         </div>
+        </div>
+            {/*start- second_section--- */}
+        {/* <section id="about"
+          className="py-[160px] overflow-hidden lg:py-[120px] md:py-[95px] sm:py-[80px] xs:py-[50px]">
+            <Container>
+              <Row className="text-center">
+                <Col md={12}>
+                  <div className="text-center">
+                    <h2 className={`${TextheadingGredient} heading-4 w-[100%] font-serif font-semibold text-darkgray block mb-0 pr-10 -tracking-[1px] lg:pr-0`}
+                  {...{ ...fadeIn, transition: { duration: 0.7, delay: 0.5 } }}>
+                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                    </h2>
+                  </div>
+                </Col>
+                <Col 
+                md={4}
+                >
+                <div style={{}}>
 
+                </div>
+                </Col>
+                <Col md={4}>
+                asdashd
+                </Col>
+                <Col md={4}>
+                asdashd
+                </Col>
+                <Col md={4}>
+                asdashd
+                </Col>
+                <Col md={4}>
+                asdashd
+                </Col>
+                <Col md={4}>
+                asdashd
+                </Col>
+              </Row>
+            </Container>
+        </section> */}
+{/* second_section---end */}
         <section
           id="about"
-          className="py-[160px] overflow-hidden lg:py-[120px] md:py-[95px] sm:py-[80px] xs:py-[50px]"
+          className="py-[160px] lg:py-[120px] md:py-[95px] sm:py-[60px]"
         >
           <Container>
-            <IconWithText
-              grid="row-cols-1 row-cols-lg-5 row-cols-md-3 row-cols-sm-2 gap-y-[50px] justify-center"
+            <div className=" flex flex-column justify-center items-center">
+            <m.h2
+                  className={`${TextheadingGredient} heading-4 text-center w-[100%] font-serif font-semibold text-darkgray block sm:mb-[10px] md:mb-12 lg:mb-12 xl:mb-12 pr-10 -tracking-[1px] lg:pr-0`}
+                  {...{ ...fadeIn, transition: { duration: 0.7, delay: 0.5 } }}
+                >
+                  How does it works
+                </m.h2>
+            <IconWithText 
+              grid="row-cols-2 row-cols-lg-3 w-[100%] row-cols-md-3 row-cols-sm-3 gap-y-[55px] sm:gap-y-[30px] justify-between"
               theme="icon-with-text-05"
               data={IconWithTextData_05}
               animation={fadeIn}
               animationDelay={0.1}
             />
+
+                  <p className="sm:pl-[12px] mt-[55px] sm:mt-[40px] sm:text-left md:text-center xl:text-center ">
+                  You Will be assigned a dedicated coach who will work closely with you to help you develop a strong foundation
+                  in technology. This primary coach will not only guide you
+                  through your learning journey but will also bring in additional expert coaches when needed, ensuring you
+                  get the specialized support required for your growth.
+                </p>
+            </div>
             <Row className="items-center justify-center mt-[10.5rem] md:mt-28 md:text-center">
               <Col lg={5} md={10} className="md:mb-[25px] md:text-center">
                 <m.h2
@@ -167,25 +226,113 @@ const DesignagencyPage = (props) => {
                   technical concepts slowly in a play-way methodology.
                 </p>
               </m.div>
-              <Col
-                lg={3}
-                className="md:mb-[25px] sm:mb-[15px] lg:px-0 text-center"
+
+                <m.div
+                className="text-center col-lg-3"
+                {...{ ...fadeIn, transition: { delay: 0.6 } }}
               >
                 <Buttons
-                  ariaLabel="Get started now"
-                  to="/page/contact-classic"
-                  className="font-semibold font-serif z-10 uppercase btn-expand rounded md:mb-[15px] hover:text-darkgray"
-                  size="xl"
-                  color="#232323"
-                  themeColor="#828282"
-                  title="Get started now"
+                  ariaLabel="Start a project"
+                  to="/page/contact-modern"
+                  className="btn-fill btn-fancy font-medium font-serif uppercase rounded-none btn-shadow"
+                  size="md"
+                  themeColor="#232323"
+                  color="#fff"
+                  title="Get Start Now"
                 />
-              </Col>
+              </m.div>
+
             </Row>
           </Container>
-        </section>
+        </section >
 
-        <section className="pb-[130px] overflow-hidden bg-gradient-to-b from-[#fff] via-[#fdfdfd] to-[#f7f7f7] lg:py-[90px] md:py-[75px] sm:py-[50px]">
+        <section
+          className="py-[120px] overflow-hidden lg:py-[90px] md:py-[75px] sm:py-[50px] bg-black">
+            <Container>
+              <Row className="md:justify-center xl:justify-center">
+               <Col md={12}>
+               <m.h2
+                    className={`${TextheadingGredient} heading-4 font-serif font-semibold text-darkgray  -tracking-[.5px] text-center`}
+                    {...{
+                      ...fadeInLeft,
+                      transition: { delay: 0.2, duration: 0.6 },
+                    }}
+                  >
+                    What We do, We do the Best!
+                  </m.h2>
+                  <m.div
+                    {...{
+                      ...fadeIn,
+                      transition: { duration: 0.7, delay: 0.7 },
+                    }}
+                  >
+                    <p className="mb-[35px] xl:text-center sm:text-center">
+                      Technology Garage is your "one-stop shop" a
+                      place where you can dive deep into hands-on
+                      experiences, enhance your tech skills, and explore
+                      everything from the basics to more advanced
+                      techniques, all in one convenient location. Whether
+                      you're starting from scratch or leveling up your
+                      expertise, our expert coaches and cutting-edge
+                      tools are here to guide you every step of the way.
+                      Empower yourself today, unlock your full potential,
+                      and be ready to shape a brighter, more innovative tomorrow.
+                    </p>
+                  </m.div>
+              </Col>
+                <Col lg={4} md={6}>
+                  <div className="text-center mb-[16px] flex flex-col justify-center items-center">
+                    <img src="assets/img/Exposure to Technology .svg" className="img-fluid w-[170px]" alt="" />
+                    <h5 className="sm:w-[77%] leading-[24px] text-[15px] font-semibold text-white mb-[10px]">Exposure to Technology</h5>
+                    <p className="leading-[24px]">Explore the greatest learning pathways and the
+                      latest technologies shaping the world around us
+                      Start here and shape the future!
+                    </p>
+                  </div>
+                </Col>
+                <Col lg={4} md={6}>
+                  <div className="text-center mb-[16px] flex flex-col justify-center items-center">
+                    <img src="assets/img/Hands-On Experience to Become the Future You .svg" className="img-fluid w-[170px]" alt="" />
+                    <h5 className="sm:w-[77%] leading-[24px] text-[15px] font-semibold text-white mb-[10px]">Hands-On Experience to
+                    Become the Future You</h5>
+                    <p className="leading-[24px]">Acquire real-world experience to craft the future
+                    version of yourself. Begin your journey here and
+                    transform your future!
+                    </p>
+                  </div>
+                </Col>
+                <Col lg={4} md={6}>
+                  <div className="text-center mb-[16px] flex flex-col justify-center items-center">
+                    <img src="assets/img/Compete with the Rest of the World .svg" className="img-fluid w-[170px]" alt="" />
+                    <h5 className="sm:w-[77%] leading-[24px] text-[15px] font-semibold text-white mb-[10px]">Compete with the Rest of the World</h5>
+                    <p className="leading-[24px]">Learning is only half the job done; hands-on experience
+                    is what truly completes the journey. Thats's exactly what we do at Technology Garage!
+                    </p>
+                  </div>
+                </Col>
+                <Col lg={4} md={6}>
+                  <div className="text-center mb-[16px] flex flex-col justify-center items-center">
+                    <img src="assets/img/Convert Your Creativity to Implementation  .svg" className="img-fluid w-[170px]" alt="" />
+                    <h5 className=" sm:w-[77%] leading-[24px] text-[15px] font-semibold text-white mb-[10px]">Convert Your Creativity to Implementation</h5>
+                    <p className=" leading-[24px]">Bring your creative ideas to life by turning them info real-world solutions
+                    </p>
+                  </div>
+                </Col>
+                <Col lg={4} md={6}>
+                  <div className="text-center mb-[16px] flex flex-col justify-center items-center">
+                    <img src="assets/img/Become a Leader in What You Want to Achieve with Technology .svg" className="img-fluid w-[170px]" alt="" />
+                    <h5 className="sm:w-[77%] leading-[24px] text-[15px] font-semibold text-white mb-[10px]">Become a Leader in What You Want to
+                    Achieve with Technology</h5>
+                    <p className="leading-[24px]">Learning is only half the job done; hands-on experience
+                    is what truly completes the journey.
+                    </p>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+        </section>
+                    {/* hover-custom-card-start */}
+        {/* <section className=" overflow-hidden bg-gradient-to-b from-[#fff] via-[#fdfdfd] to-[#f7f7f7] xl:py-[120px] lg:py-[90px] md:py-[75px] sm:py-[50px]">
           <Container>
             <Row className="items-center justify-between">
               <Col md={12}>
@@ -200,13 +347,12 @@ const DesignagencyPage = (props) => {
                     What We do, We do the Best!
                   </m.h2>
                   <m.div
-                    className=" mb-[5.5rem]"
                     {...{
                       ...fadeIn,
                       transition: { duration: 0.7, delay: 0.7 },
                     }}
                   >
-                    <p className="w-[100%] mb-[15px] lg:w-full">
+                    <p className="mb-[15px]">
                       Technology Garage has brought the world's top most
                       gadgets, methodologies, and mechanisms together to make a
                       fun learning experience. Learning pathways are designed to
@@ -233,7 +379,9 @@ const DesignagencyPage = (props) => {
         ))}
             </Row>
           </Container>
-        </section>
+        </section> */}
+
+        {/* hover-custom-card-end */}
         {/* Section End */}
 
         {/* Section Start */}
@@ -246,12 +394,12 @@ const DesignagencyPage = (props) => {
               <Col
                 xl={4}
                 lg={5}
-                className="md:mb-20 sm:mb-[6.5rem] sm:text-center"
+                className="md:mb-20 sm:mb-[6.5rem] sm:text-center md:text-center"
               >
                 <h2 className={`${TextheadingGredient} heading-4 font-serif font-semibold text-darkgray -tracking-[1px] mb-10`}>
                   Learning Technology Gamified!
                 </h2>
-                <p className="w-[90%] sm:w-full mb-[25px]">
+                <p className="xl:w-[90%] sm:w-full mb-[25px] md:w-[100%]">
                   Kids will like Technology Garage as much as parents do with
                   our gamified approach to teaching technology!
                 </p>
@@ -356,11 +504,13 @@ const DesignagencyPage = (props) => {
         </m.section>
         {/* Section End */}
 
-        {/* Section Start */}
-        <section className="py-[120px] sm:py-[100px] xs:py-[60px] bg-gradient-to-r from-[#4e9c8d] via-[#3b7b6d] to-[#3a4b49] text-white">
+        {/* Section Start-certificate */}
+        {/* <section style={{
+              backgroundImage: `url(/assets/img/Learn-tech-bg2.png)`,
+            }} className="py-[120px] overflow-hidden bg-no-repeat bg-center bg-cover sm:py-[100px] xs:py-[60px] bg-gradient-to-r from-[#4e9c8d] via-[#3b7b6d] to-[#3a4b49] text-white">
       <Container>
         <Row className="flex items-center justify-center">
-          {/* Left Section */}
+
           <Col lg={12} md={12} className="text-center lg:text-left">
             <m.h2
               className="text-5xl font-bold font-serif text-white mb-8"
@@ -381,13 +531,13 @@ const DesignagencyPage = (props) => {
               pass through every level.
             </m.p>
 
-            {/* Skill Cards */}
+
          
           </Col>
 
           </Row>
           <Row className="flex  items-center justify-center">
-          {/* <div className="flex flex-wrap justify-start gap-6"> */}
+
               {skillsData.map((item, index) => (
              <Col lg={4} md={6} className="mt-8 sm:mt-0 flex">
                 <div
@@ -400,10 +550,10 @@ const DesignagencyPage = (props) => {
                 </div>
                 </Col>
               ))}
-            {/* </div> */}
+
           </Row>
           <Row className="justify-center">
-          {/* Right Section (Image) */}
+
           <Col lg={8} md={12} className="mt-8 sm:mt-0">
             <div className="relative">
               <img
@@ -415,7 +565,8 @@ const DesignagencyPage = (props) => {
           </Col>
         </Row>
       </Container>
-    </section>
+    </section> */}
+    {/* end-certificate */}
         <section
           className="py-[160px] overflow-hidden bg-no-repeat bg-right lg:py-[120px] md:py-[95px] sm:py-[80px] xs:py-[50px]"
           style={{
@@ -423,25 +574,25 @@ const DesignagencyPage = (props) => {
           }}
         >
           <Container>
-            <m.div className="row items-center">
+            <m.div className="row items-center lg:justify-center">
               <Col
                 lg={5}
                 md={10}
-                className="text-start md:mb-12 md:text-center"
+                className="md:mb-12 md:text-center sm:text-center"
               >
                 <m.h2
-                  className={`${TextheadingGredient} heading-4 pl-4 font-serif font-medium text-darkgray mb-0 -tracking-[1px] inline-block md:w-[80%] xs:w-full`}
+                  className={`${TextheadingGredient} heading-4 pl-4  font-serif font-medium text-darkgray mb-0 -tracking-[1px] inline-block md:w-[100%] lg:w-[100%] xs:w-full`}
                   {...fadeInRight}
                 >
                   The most practical way to learn technology On Earth!
                 </m.h2>
               </Col>
-              <Col lg={4} md={9} className="text-left md:mb-12 md:text-center">
+              <Col lg={4} md={9} className="md:mb-12 md:text-center lg:text-start">
                 <m.div
-                  className=""
+                  className=" sm:text-center"
                   {...{ ...fadeIn, transition: { duration: 0.7, delay: 0.7 } }}
                 >
-                  <p className="w-[100%] mb-[15px] pr-2 text-start lg:w-full">
+                  <p className="w-[100%] mb-[15px] pr-2 lg:w-full">
                     Technology Garage has brought the world's top most gadgets,
                     methodologies, and mechanisms together to make a fun
                     learning experience. Learning pathways are designed to
@@ -499,10 +650,10 @@ const DesignagencyPage = (props) => {
                 className="text-slateblue mb-[10px] md:mb-[5px] md:mt-0 inline-block"
               >
                 <img
-                  src="/assets/img/garage.png"
+                  src="/assets/img/Technology Garage Logo - Dark.png"
                   alt="logo"
-                  width={111}
-                  height={36}
+                  width={120}
+                  height={40}
                 />
               </Link>
               <p>

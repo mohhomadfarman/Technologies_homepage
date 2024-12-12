@@ -13,14 +13,16 @@ function Header() {
   const handleShow = () => setShow(true);
   return (
     <>
-      <Navbar expand="lg" className=" MeinHeader">
+      <Navbar expand="lg" className=" MeinHeader pb-0 pt-0">
         <Container>
           <Navbar.Brand href="#home">
             <img src='/assets/img/Technology Garage Logo - Dark.png' width={200} alt="" />
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
 
-          <button onClick={handleShow} className="p-0 border-0 bg-transparent">
+          <button 
+          // onClick={handleShow}
+           className="p-0 border-0 bg-transparent">
             <IoMenu size={35} />
           </button>
 

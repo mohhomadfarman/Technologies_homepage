@@ -1,4 +1,13 @@
+import dedictedcoach from "../../Assets/img/Dedicated Coach for Every Player.svg" 
+import PersonalizedGuidance from "../../Assets/img/Personalized Guidance Tailored to You.svg" 
+import BuildingYourStrongTechnology from "../../Assets/img/Building Your Strong Technology Foundation.svg" 
+import OngoingSupport from "../../Assets/img/Ongoing Support for Your Growth.svg" 
+import TailoredLearning from "../../Assets/img/Tailored Learning to Suit Your Needs.svg"
+import ExpertCoaches from "../../Assets/img/Expert Coaches Available On Demand.svg"
+
+
 const IconWithTextData_01 = [
+
     {
         icon: "line-icon-Navigation-LeftWindow text-basecolor text-[40px] text-fastblue",
         title: "Amazing layouts",
@@ -96,25 +105,29 @@ const IconWithTextData_04 = [
 ]
 
 const IconWithTextData_05 = [
-    {
-        icon: "line-icon-Vector-5",
-        title: "Good design",
+    {   
+        icon: dedictedcoach,
+        title: "Dedicated Coach for Every Player",
     },
     {
-        icon: "line-icon-Police",
-        title: "Inspiring ideas",
+        icon: PersonalizedGuidance,
+        title: "personalized Guidance Tailored to You",
     },
     {
-        icon: "line-icon-Bee",
-        title: "Innovative code",
+        icon: BuildingYourStrongTechnology,
+        title: "Building Your Strong Technology Foundation",
     },
     {
-        icon: "line-icon-Medal-2",
-        title: "Best quality",
+        icon: OngoingSupport,
+        title: "Ongoing Support for Your Growth",
     },
     {
-        icon: "line-icon-Idea-5",
-        title: "Brand analysis",
+        icon: TailoredLearning,
+        title: "Tailored Learning to Suit Your Needs",
+    },
+    {
+        icon: ExpertCoaches,
+        title: "Expert Coaches Avaliable On Demand",
     },
 ]
 
