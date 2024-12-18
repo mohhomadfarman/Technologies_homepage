@@ -73,7 +73,6 @@ const Page = (props) => {
       <div className="bg-white" style={props.style}>
         <SideButtons />
         {/* Header Start */}
-        <div className="row sm:h-[100vh]">
         <Header />
           <LineText onPress={handleShow}/>
         {/* Section Start */}
@@ -100,7 +99,7 @@ const Page = (props) => {
                 sm={7}
                 className="flex flex-col items-start justify-center"
               >
-                <h1 className="font-serif font-semibold text-[80px] leading-[95px] text-white drop-shadow -tracking-[4px] mb-[4.5rem] xs:w-[85%] lg:text-[80px] lg:leading-[90px] md:text-[50px] md:leading-[65px] sm:text-[35px] sm:leading-[43px] sm:-tracking-[.5px]">
+                <h1 className="font-serif font-semibold text-[70px] leading-[90px] text-white drop-shadow -tracking-[4px] mb-[4.5rem] xs:w-[85%] lg:text-[80px] lg:leading-[90px] md:text-[50px] md:leading-[65px] sm:text-[35px] sm:leading-[43px] sm:-tracking-[.5px]">
                   AI is not in the<br/>
                   Future !!<br/>
                   It's happening<br/>
@@ -139,7 +138,7 @@ const Page = (props) => {
             </ScrollTo>
           </div>
         </div>
-        </div>
+
             {/*start- second_section--- */}
         {/* <section id="about"
           className="py-[160px] overflow-hidden lg:py-[120px] md:py-[95px] sm:py-[80px] xs:py-[50px]">
@@ -467,17 +466,17 @@ const Page = (props) => {
           className="py-[120px] lg:py-[90px] sm:py-[80px] xs:py-[50px] overflow-hidden border-b border-mediumgray bg-black"
         >
           <Container>
-            <Row>
+
             <m.div className="row items-center">
               <Col
                 xl={4}
                 lg={5}
-                className="md:mb-20 sm:mb-[6.5rem] sm:text-center md:text-center"
+                className="sm:text-center md:text-center"
               >
                 <h2 className={`${TextheadingGredient} heading-4 font-serif font-semibold text-darkgray -tracking-[1px] mb-10`}>
                 Your One - Stop Shop
                 </h2>
-                <p className="xl:w-[90%] sm:w-full mb-[25px] md:w-[100%]">
+                <p className="xl:w-[90%] sm:w-full mb-[35px] md:w-[100%] sm:text-left">
                   With this personalized and flexible approch, Technology Garage becomes your
                   "one-stop shope" for exploring and mastering technology. Whether your're just starting
                   or looking to expand your skills, we're here to support you every step of the way.
@@ -500,7 +499,7 @@ const Page = (props) => {
             <Row className="justify-center ">
               <Col lg={12}>
                 <div>
-                <p className="w-[100%] my-[35px] pr-2 lg:w-full">
+                <p className="w-[100%] mt-[35px] lg:w-full">
                 Technology Garage is your "one-stop shop" a
                 place where you can dive deep into hands-on
                 experiences, enhance your tech skills, and explore
@@ -515,8 +514,21 @@ const Page = (props) => {
                   </p>
                 </div>
               </Col>
+              </Row>
+          
+              
 
-              <Col lg={4} 
+          </Container>
+        </section>
+
+        <section
+          id="pricing"
+          className="py-[90px] overflow-hidden border-b border-mediumgray pb-0 lg:py-[0px] md:py-[95px] sm:py-[80px] xs:py-[50px]"
+        >
+          <Container>
+
+            <Row className="">
+            <Col lg={4} 
                     md={6} 
 
                   
@@ -575,17 +587,7 @@ const Page = (props) => {
               </div>
             </div>
           </Col>
-              </Row>
             </Row>
-          </Container>
-        </section>
-        <section
-          id="pricing"
-          className="py-[0px] overflow-hidden border-b border-mediumgray pb-0 lg:py-[0px] md:py-[95px] sm:py-[80px] xs:py-[50px]"
-        >
-          <Container>
-
-
             {/* <m.div className="row items-center" {...fadeIn}>
               <Col
                 xl={4}
