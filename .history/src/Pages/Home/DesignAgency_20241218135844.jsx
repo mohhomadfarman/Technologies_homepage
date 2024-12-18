@@ -180,7 +180,7 @@ const Page = (props) => {
         </section> */}
 {/* second_section---end */}
 <section
-          className="overflow-hidden py-[120px] lg:py-[90px] sm:py-[80px] bg-black">
+          className=" overflow-hidden py-[120px] lg:py-[90px] sm:py-[80px] bg-black">
             <Container>
               <Row className="md:justify-center xl:justify-center">
                <Col md={12}>

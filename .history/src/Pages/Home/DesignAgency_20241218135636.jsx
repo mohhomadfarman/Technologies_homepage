@@ -180,7 +180,7 @@ const Page = (props) => {
         </section> */}
 {/* second_section---end */}
 <section
-          className="overflow-hidden py-[120px] lg:py-[90px] sm:py-[80px] bg-black">
+          className="py-[120px] overflow-hidden lg:py-[90px] md:py-[75px] sm:py-[50px] bg-black">
             <Container>
               <Row className="md:justify-center xl:justify-center">
                <Col md={12}>
@@ -254,7 +254,7 @@ const Page = (props) => {
         </section>
         <section
           id="about"
-          className="py-[120px] lg:py-[90px] sm:py-[80px]"
+          className="py-[160px] lg:py-[120px] md:py-[95px] sm:py-[60px]"
         >
           <Container>
             <div className=" flex flex-column justify-center items-center">
@@ -464,7 +464,7 @@ const Page = (props) => {
         {/* Section Start */}
         <section
           id="pricing"
-          className="py-[120px] lg:py-[90px] sm:py-[80px] xs:py-[50px] overflow-hidden border-b border-mediumgray bg-black"
+          className="py-[120px] overflow-hidden border-b border-mediumgray bg-black"
         >
           <Container>
             <Row>

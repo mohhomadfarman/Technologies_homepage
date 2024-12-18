@@ -180,7 +180,7 @@ const Page = (props) => {
         </section> */}
 {/* second_section---end */}
 <section
-          className="overflow-hidden py-[120px] lg:py-[90px] sm:py-[80px] bg-black">
+          className="py-[120px] overflow-hidden lg:py-[90px] md:py-[75px] sm:py-[50px] bg-black">
             <Container>
               <Row className="md:justify-center xl:justify-center">
                <Col md={12}>
@@ -254,7 +254,7 @@ const Page = (props) => {
         </section>
         <section
           id="about"
-          className="py-[120px] lg:py-[90px] sm:py-[80px]"
+          className="py-[160px] lg:py-[120px] md:py-[95px] sm:py-[60px]"
         >
           <Container>
             <div className=" flex flex-column justify-center items-center">
@@ -464,11 +464,14 @@ const Page = (props) => {
         {/* Section Start */}
         <section
           id="pricing"
-          className="py-[120px] lg:py-[90px] sm:py-[80px] xs:py-[50px] overflow-hidden border-b border-mediumgray bg-black"
+          className="py-[0px] overflow-hidden border-b border-mediumgray pb-0 lg:py-[0px] md:py-[95px] sm:py-[80px] xs:py-[50px]"
+        ></section>
+        <section
+          id="pricing"
+          className="py-[0px] overflow-hidden border-b border-mediumgray pb-0 lg:py-[0px] md:py-[95px] sm:py-[80px] xs:py-[50px]"
         >
           <Container>
-            <Row>
-            <m.div className="row items-center">
+          <m.div className="row items-center" {...fadeIn}>
               <Col
                 xl={4}
                 lg={5}
@@ -521,7 +524,7 @@ const Page = (props) => {
 
                   
                   className="d-flex mt-5" >
-            <div className="border px-3 py-4 rounded-lg hover:shadow-lg transition-shadow duration-300 ease-in-out bg-white hover:bg-white">
+            <div className="border px-3 py-4 rounded-lg hover:shadow-lg transition-shadow duration-300 ease-in-out hover:bg-white">
               <div className="text-center pb-4 flex justify-center">
                 <img src="/assets/img/Basics.svg" className="img-fluid w-[70px]" alt="" />
               </div>
@@ -539,7 +542,7 @@ const Page = (props) => {
                     md={6} 
                   
                   className="d-flex mt-5" >
-            <div className="border px-3 py-4 rounded-lg hover:shadow-lg transition-shadow duration-300 ease-in-out bg-white hover:bg-white">
+            <div className="border px-3 py-4 rounded-lg hover:shadow-lg transition-shadow duration-300 ease-in-out hover:bg-white">
               <div className="text-center pb-4 flex justify-center">
               <img src="/assets/img/Learn.svg" className="img-fluid w-[70px]" alt="" />
               </div>
@@ -559,7 +562,7 @@ const Page = (props) => {
                     md={6} 
                   
                   className="d-flex mt-5" >
-            <div className="border px-3 py-4 rounded-lg hover:shadow-lg transition-shadow duration-300 ease-in-out bg-white hover:bg-white">
+            <div className="border px-3 py-4 rounded-lg hover:shadow-lg transition-shadow duration-300 ease-in-out hover:bg-white">
               <div className="text-center pb-4 flex justify-center">
               <img src="/assets/img/Gamified.svg" className="img-fluid w-[70px]" alt="" />
               </div>
@@ -576,15 +579,6 @@ const Page = (props) => {
             </div>
           </Col>
               </Row>
-            </Row>
-          </Container>
-        </section>
-        <section
-          id="pricing"
-          className="py-[0px] overflow-hidden border-b border-mediumgray pb-0 lg:py-[0px] md:py-[95px] sm:py-[80px] xs:py-[50px]"
-        >
-          <Container>
-
 
             {/* <m.div className="row items-center" {...fadeIn}>
               <Col
