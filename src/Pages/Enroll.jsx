@@ -52,7 +52,7 @@ const TopicSelection = ({ topics, handleChange }) => (
 );
 
 const DaySelection = ({ days }) => (
-  <div className="radio-title-group time-slot">
+  <div className="radio-title-group time-slot sm:flex-wrap sm:px-3">
     {days.map((day, index) => (
       <div className="input-container" key={index}>
         <input id={`day-${day}`} type="radio" name="day" />
