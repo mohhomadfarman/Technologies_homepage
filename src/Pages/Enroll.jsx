@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaCross, FaPlus, FaSave } from 'react-icons/fa';
 
 const topics = [
@@ -90,6 +90,22 @@ const TimeSlotSelection = ({ timeSlots }) => (
 function Enroll() {
   const [step, setStep] = useState(0);
 
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000); // Update every second
+
+    return () => clearInterval(intervalId);
+  }, []);
+  const formattedTime = new Intl.DateTimeFormat('en-US', {
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    timeZoneName: 'short',
+  }).format(currentTime);
+
   const handleNext = () => {
     setStep(step + 1);
   };
@@ -107,6 +123,7 @@ function Enroll() {
             <div className="col-md-11">
               <div className="perent-bg">
                 <div className="top-heading">
+                <h4 className='fs-6 leading-normal'>{formattedTime}</h4>
                   <h1 className='text-[28px] sm:text-[20px]'>Pick any Topic below</h1>
                 </div>
                 <TopicSelection topics={topics} handleChange={handleChange} />
@@ -122,7 +139,8 @@ function Enroll() {
             <div className="col-md-11">
               <div className="mb-4">
                 <div className="selected-garage">
-                  <h3>Available Time Slots</h3>
+                  <h3>Available Time Slots </h3>
+                  
                 </div>
                     <div className='d-flex justify-between items-center px-5 mb-3'>
                         <h6 className='text-dark fs-6 fw-medium mb-0'>Select Day</h6>
