@@ -30,6 +30,7 @@ import Header from "../../Components/Header";
 import { accordionData, services, skillsData } from "./homeData";
 import LineText from "../../Components/LineText";
 import { IconWithTextData_05 } from "../../Components/IconWithText/IconWithTextData";
+import Enroll from "../Enroll";
 
 const FooterSocialIconData = [
   {
@@ -823,7 +824,7 @@ const Page = (props) => {
       <CommonModal
         bodyClass="bodyModals"
         className="StartModals"
-        ModalBody={<FormComp modaleClose={handleClose} />}
+        ModalBody={<Enroll/>}
         modalHeading="GETTING STARTED"
         handleClose={handleClose}
         show={show}

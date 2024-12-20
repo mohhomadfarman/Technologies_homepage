@@ -16,7 +16,19 @@ h3 {
   color: #343a40;
   margin-bottom: 20px;
 }
-
+.contineu-btn{
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #0c2236;
+  border-radius: 20px;
+  padding:2px 60px;
+  transition: all 0.3s ease-in-out;
+}
+.contineu-btn:hover{
+  color: #fff;
+  background-color: #0c2236;
+}
 .modal {
   text-align: center;
 }
@@ -126,6 +138,7 @@ justify-content: space-between;
   background-color: #eaeaea;
   padding-left:0 !important;
   padding-right:0 !important;
+  padding: 30px 0;
 }
 
 
@@ -161,18 +174,17 @@ h1{
 
 .perent-bg {
   background-color: #eaeaea;
-  /* height: 500px; */
-  padding: 50px 30px;
-  padding-bottom: 200px !important;
+
 }
 .perent-bg .top-heading{
   width: 100%;
 }
 .perent-bg .top-heading h1{
-  padding-bottom:40px;
   text-align: center;
   font-weight: 600;
   font-size: 24px;
+  line-height: normal;
+  margin:30;
 }
 .radio-title-group.top-input{
   display: flex;
@@ -180,18 +192,25 @@ h1{
   justify-content: center;
   gap: 3px;
   align-items: center;
-  /* padding: 70px 0 120px 0; */
 }
 
 .radio-title-group.top-input  .input-container .input-text h1{
   font-size: 20px;
-  font-weight:300;
+  font-weight:600;
   margin: 0;
   padding: 10px 0;
+  line-height: normal;
+}
+.radio-title-group.top-input  .input-container .input-text p{
+  font-size: 14px;
+  color:#232323;
+  line-height: normal;
+  font-weight: 500;
+  padding: 0 12px 16px;
 }
 .radio-title-group.top-input .input-container{
   position: relative;
-  width: 300px;
+  width: 100%;
   margin: 0.5rem;
 }
 
@@ -213,27 +232,26 @@ h1{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid hsl(208, 100%, 55%);
-  border-radius:15px;
+  /* border: 1px solid hsl(208, 100%, 55%); */
+  border-radius:40px;
   transition: all 0.3s ease-in-out;
 }
 
 .radio-title-group.top-input .input-container .radio-title{
   color: #000;
-  background: #eaeaea;
+  background: #fff;
   
 }
-.radio-title-group.top-input .input-container .input-text h1
-{
-  font-size: 16px;
-  font-weight: 600;
-}
+
 .radio-title-group.top-input input:checked + .radio-title{
   background-color:hsl(208, 100%, 55%);
   border-color:hsl(208, 100%, 55%);
-  /* box-shadow: 0 0 12px rgb(95, 29, 156); */
+
 }
 .radio-title-group.top-input input:checked + .radio-title h1{
+  color: #fff;
+}
+.radio-title-group.top-input input:checked + .radio-title p{
   color: #fff;
 }
 
@@ -352,10 +370,10 @@ h1{
 
 .selected-garage h3{
  color: #000;
- font-size:18px;
+ font-size:24px;
  font-weight: 500;
  text-align: center;
- margin-bottom: 50px;
+ margin-bottom:15px;
 }
 
 
@@ -367,7 +385,7 @@ h1{
 .monday-time-select{
  display: flex;
  align-items: center;
- justify-content: space-between;
+ justify-content:center;
  padding-bottom: 30px;
  gap: 10px;
 }
@@ -386,14 +404,20 @@ h1{
  justify-content: center;
  gap:10px;
  align-items: center;
-
+}
+.monday-time-select.sunday-timing-flex{
+  flex-direction: column;
+}
+.radio-title-group.time-slot.sunday-timing-flex-2{
+  flex-direction: column;
 }
 
-.radio-title-group.time-slot  .input-container .input-text h1{
- font-size:10px;
+.radio-title-group.time-slot .input-container .input-text h1{
+ font-size:13px;
  font-weight:600;
  margin: 0;
- padding: 2px 8px;
+ line-height: normal;
+ 
 }
 .radio-title-group.time-slot .input-container{
  position: relative;
@@ -411,30 +435,32 @@ h1{
 
 }
 
-
+.radio-title-group.time-slot .input-container .radio-title.custom-h{
+  height: 30px;
+  width:100px;
+}
 .radio-title-group.time-slot .input-container .radio-title{
  display: flex;
  flex-direction: column;
  align-items: center;
  justify-content: center;
- border: 1px solid hsl(208, 100%, 55%);
+ /* border: 1px solid hsl(208, 100%, 55%); */
  border-radius:15px;
- transition: all 0.3s ease-in-out;
-}
-
-.radio-title-group.time-slot .input-container .radio-title{
+ /* transition: all 0.5s ease-in-out; */
+ width: 40px;
+ height: 70px;
  color: #000;
- background: transparent;
- 
+ background:#fff;
 }
 
 .radio-title-group.time-slot input:checked + .radio-title{
- background-color:#0c2236;
- border-color:#0c2236;
-
+ background-color:#fff;
+ border: 1px solid #0c2236;
+ box-shadow: 0px 5px 3px 0px #aaaaaa85;
+ 
 }
 .radio-title-group.time-slot input:checked + .radio-title h1{
- color: #fff;
+  color: #0c2236;
 }
 /* end-custom-container-2  */
 
