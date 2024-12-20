@@ -39,7 +39,7 @@ h3 {
 
 /* Location Access Modal */
 .modal-body p {
-  font-size: 16px;
+  /* font-size: 16px; */
   color: #6c757d;
 }
 
@@ -129,9 +129,9 @@ margin: 0 !important;
 justify-content: space-between;
 }
 .StartModals .modal-header .modal-title {
-  margin-left: 60px;
+  /* margin-left: 60px; */
   font-weight: 600;
-  font-size: 28px;
+  /* font-size: 28px; */
 }
 
 .bodyModals{
@@ -182,7 +182,6 @@ h1{
 .perent-bg .top-heading h1{
   text-align: center;
   font-weight: 600;
-  font-size: 24px;
   line-height: normal;
   margin:30;
 }
