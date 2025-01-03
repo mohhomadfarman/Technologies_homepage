@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import "./style.css";
+
 import { Button, Col, Container, Navbar, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Form, Formik } from "formik";
@@ -82,13 +83,13 @@ const Page = (props) => {
             className="lg-no-parallax bg-cover absolute top-[0px] left-0 md:-top-[30px] w-full h-[100vh]"
             translateY={[-40, 40]}
             style={{
-              backgroundImage: `url(/assets/img/Ai-is-not.png)`,
+              backgroundImage: `url(./assets/img/AI-is-not.png)`,
             }}
           ></Parallax>
           <div
             className="h-full w-full left-0 top-0 absolute cover-background brightness-50"
             style={{
-              backgroundImage: `url(/assets/img/Ai-is-not.png)`,
+              backgroundImage: `url(/assets/img/AI-is-not.png)`,
             }}
           ></div>
 
@@ -644,7 +645,7 @@ const Page = (props) => {
                   className=""
                   {...{ ...fadeIn, transition: { duration: 0.7, delay: 0.7 } }}
                 >
-                  <p className="w-[100%] mb-[65px] pr-2 text-start lg:w-full text-center">
+                  <p className="w-[100%] mb-[65px] pr-2  lg:w-full text-center">
                     A unique blend of concepts from the industry is hand picked
                     and created as learning pathways in Technology Garage. Below
                     are the various levels our students can achieve and get
@@ -799,7 +800,7 @@ const Page = (props) => {
         modalHeading="GETTING STARTED"
         handleClose={handleClose}
         show={show}
-        size="xl"
+        size="md"
       />
       {/* Footer Start */}
       <Footer
