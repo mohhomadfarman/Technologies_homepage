@@ -626,40 +626,11 @@ const Page = (props) => {
                 </div>
               </Col>
             </m.div> */}
-            <Row className="items-center justify-center  mt-[100px] ">
-              <m.div
-                className="text-right md:mb-20 xs:mb-16 md:text-center col-lg-3 col-md-5 col-sm-6 order-1"
-                {...fadeInLeft}
-              >
-                <i className="fas fa-quote-right text-[28px] block opacity-30 mb-[25px]"></i>
-                <span className="font-serif font-medium text-[24px] leading-[30px] text-darkgray inline-block w-[80%] md:text-xmd md:leading-[22px]">
-                  Our devices are from the best of the world!.
-                </span>
-              </m.div>
-              <Col lg={{ span: 6, order: 2 }} md={8} className="p-0 order-3">
-                <div className="d-flex align-center justify-center">
-                  <m.img
-                    className="img-fluid rounded-lg border-1 "
-                    src="https://lithoreact.themezaa.com/assets/img/webp/home-design-agency-img-transparent-02.webp"
-                    alt=""
-                    {...fadeIn}
-                  />
-                </div>
-              </Col>
-              <m.div
-                className="md:mb-20 xs:mb-28 md:text-center col-lg-3 col-md-5 col-sm-6 order-lg-3 order-2"
-                {...fadeInRight}
-              >
-                <i className="fas fa-quote-left text-[28px] block opacity-30 mb-[25px]"></i>
-                <span className="font-serif font-medium text-lg leading-[30px] text-darkgray inline-block w-[80%] md:text-xmd md:leading-[22px]">
-                  Including Google, Microsoft, LEGO, Wonder Workshop, and AWS!
-                </span>
-              </m.div>
-            </Row>
+            
           </Container>
         </section>
-
-        <m.section
+{/* studio-setup */}
+        {/* <m.section
           className="py-[130px] bg-lightgray overflow-hidden lg:py-[90px] md:py-[75px] sm:py-[50px]"
           {...fadeIn}
         >
@@ -700,7 +671,7 @@ const Page = (props) => {
               </Col>
             </Row>
           </Container>
-        </m.section>
+        </m.section> */}
         {/* Section End */}
 
         {/* Section Start-certificate */}
@@ -775,7 +746,7 @@ const Page = (props) => {
           <Container>
             <m.div className="row items-center lg:justify-center">
               <Col
-                lg={5}
+                lg={6}
                 md={10}
                 className="md:mb-12 md:text-center sm:text-center"
               >
@@ -786,7 +757,7 @@ const Page = (props) => {
                   The most practical way to learn technology On Earth!
                 </m.h2>
               </Col>
-              <Col lg={4} md={9} className="md:mb-12 md:text-center lg:text-start">
+              <Col lg={6} md={9} className="md:mb-12 md:text-center lg:text-start">
                 <m.div
                   className=" sm:text-center"
                   {...{ ...fadeIn, transition: { duration: 0.7, delay: 0.7 } }}
@@ -800,7 +771,7 @@ const Page = (props) => {
                   </p>
                 </m.div>
               </Col>
-              <m.div
+              {/* <m.div
                 className="text-center col-lg-3"
                 {...{ ...fadeIn, transition: { delay: 0.6 } }}
               >
@@ -813,7 +784,7 @@ const Page = (props) => {
                   color="#fff"
                   title="Start a project"
                 />
-              </m.div>
+              </m.div> */}
             </m.div>
           </Container>
         </section>
@@ -851,7 +822,7 @@ const Page = (props) => {
                 <img
                   src="/assets/img/Technology Garage Logo - Dark.png"
                   alt="logo"
-                  width={120}
+                  width={180}
                   height={40}
                 />
               </Link>
@@ -872,11 +843,9 @@ const Page = (props) => {
               xs={{ span: 12, order: 1 }}
               className="text-center items-center flex flex-col md:items-start sm:mb-[50px] sm:items-center xs:mb-[30px]"
             >
-              <span className="mb-[25px] block sm:w-full md:text-start md:w-4/5 sm:text-center leading-none md:leading-normal">
-                <span className="text-black font-medium">
-                  Newsletter sign-up.{" "}
-                </span>
-                Get monthly updates and resources.
+              <span className="mb-[25px] block sm:w-full font-semibold text-black text-[24px] md:text-start md:w-4/5 sm:text-start leading-none md:leading-normal">
+                  Get In Touch
+               
               </span>
               <div className="form w-[75%] justify-center md:justify-start xs:w-[95%] overflow-hidden">
                 <Formik
@@ -897,10 +866,10 @@ const Page = (props) => {
                       <Form className="relative">
                         <Input
                           showErrorMsg={false}
-                          type="email"
-                          name="email"
+                          type="number"
+                          name="contact"
                           className="border-[1px] border-solid rounded-none bg-transparent small-input text-md m-0 w-full !pr-[50px]"
-                          placeholder="Enter your email address"
+                          placeholder="Enter your Contact Number"
                         />
                         <button
                           aria-label="subscribe btn"
@@ -909,7 +878,7 @@ const Page = (props) => {
                             isSubmitting ? " loading" : ""
                           }`}
                         >
-                          <i className="far fa-envelope text-lg leading-none m-0 mr-[10px] text-black xs:mr-0"></i>
+                          Submit
                         </button>
                       </Form>
                       <AnimatePresence>
