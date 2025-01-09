@@ -114,6 +114,70 @@ function Enroll() {
     console.log('Selected Topic:', value);
     handleNext();
   };
+  const formatExpirationDate = (e) => {
+    let value = e.target.value;
+    // Remove any non-digit or slash characters
+    value = value.replace(/[^0-9/]/g, "");
+    // Automatically add a slash after entering the first two digits (month)
+    if (value.length === 2 && !value.includes("/")) {
+      value = value + "/";
+    }
+    e.target.value = value;
+  };
+
+  const validateAlphabets = (e) => {
+    const value = e.target.value;
+    e.target.value = value.replace(/[^a-zA-Z\s]/g, ""); // Remove non-alphabetic characters
+  };
+  
+  const validateNumbers = (e) => {
+    let value = e.target.value;
+    
+    // Remove any non-numeric characters
+    value = value.replace(/\D/g, "");
+  
+    // Limit input to a maximum of 3 digits
+    if (value.length > 3) {
+      value = value.slice(0, 3); // Truncate to the first 3 digits
+    }
+  
+    e.target.value = value;
+  };
+  
+  const validateExpirationDate = (value) => {
+    const errorElement = document.getElementById("expiration-error");
+    errorElement.classList.add("hidden");
+  
+    const today = new Date();
+    const [month, year] = value.split("/").map((v) => parseInt(v, 10));
+    const currentYear = today.getFullYear() % 100; // Get last two digits of the year
+    const currentMonth = today.getMonth() + 1; // Months are 0-indexed
+  
+    if (
+      !month ||
+      !year ||
+      month < 1 ||
+      month > 12 ||
+      year < currentYear ||
+      (year === currentYear && month < currentMonth)
+    ) {
+      errorElement.classList.remove("hidden");
+      return false;
+    }
+    return true;
+  };
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const expirationInput = document.getElementById("expirationdate").value;
+  
+    if (!validateExpirationDate(expirationInput)) {
+      alert("Please fix the errors before submitting.");
+      return;
+    }
+  
+    alert("Form submitted successfully!");
+  };
 
   return (
     <div>
@@ -145,8 +209,8 @@ function Enroll() {
                     <div className='d-flex justify-between items-center px-5 mb-3'>
                         <h6 className='text-dark fs-6 fw-medium mb-0'>Select Day</h6>
                         <div className='d-flex items-center gap-3 '>
-                        <button className='text-[#25244e] fw-bold text-[12px] flex items-center justify-center gap-2'><span>Cancel</span> <FaPlus style={{rotate:"45deg"}}/></button>
-                        <button className='text-[#25244e] fw-bold text-[12px] flex items-center justify-center gap-2'><span>Save</span>  <FaSave/></button>
+                        {/* <button className='text-[#25244e] fw-bold text-[12px] flex items-center justify-center gap-2'><span>Cancel</span> <FaPlus style={{rotate:"45deg"}}/></button>
+                        <button className='text-[#25244e] fw-bold text-[12px] flex items-center justify-center gap-2'><span>Save</span>  <FaSave/></button> */}
                         </div>
 
                     </div>
@@ -160,10 +224,10 @@ function Enroll() {
                   </div>
 
                   <div className='d-flex justify-between items-center w-100 px-5 mb-3'>
-                        <h6 className='text-dark fs-6 fw-medium mb-0'>Select Day</h6>
+                        <h6 className='text-dark fs-6 fw-medium mb-0'>Select Time</h6>
                         <div className='d-flex items-center gap-3 '>
-                        <button className='text-[#25244e] fw-bold text-[12px] flex items-center justify-center gap-2'><span>Cancel</span> <FaPlus style={{rotate:"45deg"}}/></button>
-                        <button className='text-[#25244e] fw-bold text-[12px] flex items-center justify-center gap-2'><span>Save</span>  <FaSave/></button>
+                        {/* <button className='text-[#25244e] fw-bold text-[12px] flex items-center justify-center gap-2'><span>Cancel</span> <FaPlus style={{rotate:"45deg"}}/></button>
+                        <button className='text-[#25244e] fw-bold text-[12px] flex items-center justify-center gap-2'><span>Save</span>  <FaSave/></button> */}
                         </div>
 
                     </div>
@@ -177,6 +241,118 @@ function Enroll() {
           </div>
         </div>
       )}
+      {step === 2 && (
+        <>
+        <form action="" className="px-8" onSubmit={handleSubmit}>
+  <div className="field-container">
+    {/* Name Field */}
+    <div>
+      <label htmlFor="name" className="w-100 text-left">
+        Your Name
+      </label>
+      <input
+        type="text"
+        id="name"
+        className="w-100 p-2 text-[18px] rounded-[12px] mb-3"
+        required
+        pattern="^[a-zA-Z\s]+$"
+        onInput={(e) => validateAlphabets(e)}
+        title="Please enter only alphabets (letters and spaces)."
+      />
+    </div>
+
+    {/* Contact Number Field */}
+    <div>
+      <label htmlFor="contact" className="w-100 text-left">
+        Contact Number
+      </label>
+      <input
+    type="text"
+    id="contact"
+    className="w-100 p-2 text-[18px] rounded-[12px] mb-3"
+    required
+    maxLength="10"
+    pattern="^\d{1,10}$"
+    onInput={(e) => {
+      e.target.value = e.target.value.replace(/\D/g, ''); // Allow only numeric characters
+    }}
+    title="Please enter a valid contact number with up to 10 digits."
+  />
+    </div>
+
+    {/* Card Number Field */}
+    <div>
+  <label htmlFor="cardnumber" className="w-100 text-left">
+    Card Number
+  </label>
+  <input
+    type="text"
+    id="cardnumber"
+    className="w-100 p-2 text-[18px] rounded-[12px] mb-3"
+    required
+    maxLength="16"
+    pattern="^\d{1,16}$"
+    onInput={(e) => {
+      e.target.value = e.target.value.replace(/\D/g, '');
+    }}
+    title="Please enter only numbers (up to 16 digits)."
+  />
+    </div>
+
+  </div>
+
+  <div className="flex gap-2">
+    {/* Expiration Date Field */}
+    <div className="field-container w-100">
+    <label htmlFor="expirationdate" className="w-100 text-left">
+      Expiration (MM/YY)
+    </label>
+    <input
+      className="w-100 p-2 text-[18px] rounded-[12px] mb-3"
+      id="expirationdate"
+      type="text"
+      placeholder="MM/YY"
+      required
+      maxLength="5"
+      pattern="^(0[1-9]|1[0-2])\/([2-9][0-9])$"
+      onInput={(e) => formatExpirationDate(e)}
+      onBlur={(e) => validateExpirationDate(e.target.value)}
+      title="Enter a valid expiration date in MM/YY format."
+    />
+    <small id="expiration-error" className="text-red-500 hidden">
+      Invalid expiration date. Ensure the format is MM/YY and the date is valid.
+    </small>
+  </div>
+
+
+    {/* Security Code Field */}
+    <div className="w-100">
+      <label htmlFor="securitycode" className="w-100 text-left">
+        Security Code
+      </label>
+      <input
+        type="text"
+        id="securitycode"
+        className="w-100 p-2 text-[18px] rounded-[12px] mb-3"
+        required
+        pattern="^\d{3,4}$"
+        onInput={(e) => validateNumbers(e)}
+        title="Enter a valid 3-digit CVV."
+      />
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    className="bgColor=[#0c2236] text-white px-4 py-2 rounded-md mt-4"
+  >
+    Submit
+  </button>
+</form>
+        </>
+      )
+      
+      }
     </div>
   );
 }
