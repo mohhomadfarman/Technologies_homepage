@@ -159,6 +159,10 @@ function Enroll() {
     alert("Form submitted successfully!");
   };
 
+
+  const backNavigation = () => {
+    setStep(step - 1);
+  }
   return (
     <form onSubmit={handleSubmit} className="px-8">
       <div>
@@ -200,9 +204,13 @@ function Enroll() {
                       <h6 className="text-dark fs-6 fw-medium mb-0">Select Time</h6>
                     </div>
                     <TimeSlotSelection timeSlots={FORM_DATA.timeSlots} />
-                    <button type="button" className="contineu-btn" onClick={handleNext}>
-                      Continue
-                    </button>
+                    <button
+                        type="button"
+                        className="bg-gradient-to-l from-[#556fff] via-[#e05fc4] to-[#ff798e]  -tracking-[.5px]  text-white px-4 py-2 rounded-md mt-4"
+                        onClick={handleNext}
+                      >
+                        Save & Continue
+                      </button>
                   </div>
                 </div>
               </div>
@@ -263,6 +271,21 @@ function Enroll() {
                   />
                 </div>
                 <div className="d-flex flex-column w-50">
+                  <label htmlFor="parentNumnber" className="w-100 text-left">
+                    Parents Number
+                  </label>
+                  <input
+                    type="text"
+                    id="parentNumnber"
+                    className="w-100 p-2 text-[18px] rounded-[12px] mb-3"
+                    required
+                    onInput={InputValidation.alphabetsOnly}
+                  />
+                </div>
+          
+              </div>
+              <div className="d-flex justify-start gap-3">
+              <div className="d-flex flex-column w-100">
                   <label htmlFor="email" className="w-100 text-left">
                     Email
                   </label>
@@ -273,15 +296,27 @@ function Enroll() {
                     required
                   />
                 </div>
+           
               </div>
+              
             </div>
+           <div className='d-flex justify-between'>
+
+           <button
+              type="button"
+              className="text-white bg-slate-500 px-4 py-2 rounded-md mt-4"
+              onClick={backNavigation}
+            >
+             Back 
+            </button>
             <button
               type="button"
-              className="bg-[#0c2236] text-white px-4 py-2 rounded-md mt-4"
+              className="bg-gradient-to-l from-[#556fff] via-[#e05fc4] to-[#ff798e]  -tracking-[.5px]  text-white px-4 py-2 rounded-md mt-4"
               onClick={handleNext}
             >
               Save & Continue
             </button>
+           </div>
           </>
         )}
 
@@ -345,12 +380,32 @@ function Enroll() {
               </div>
             </div>
 
-            <button
-              type="submit"
-              className="bg-[#0c2236] text-white px-4 py-2 rounded-md mt-4"
-            >
-              Submit
-            </button>
+            <div className='d-flex justify-between'>
+
+<button
+   type="button"
+   className="text-white bg-slate-500 px-4 py-2 rounded-md mt-4"
+   onClick={backNavigation}
+ >
+  Back 
+ </button>
+          <div className='d-flex align-center gap-3'>
+
+        
+ <button
+   type="button"
+   className="bg-[#fff]  text-black px-4 py-2 rounded-md mt-4"
+ >
+   Inquire Now
+ </button>
+ <button
+   type="button"
+   className="bg-gradient-to-l from-[#556fff] via-[#e05fc4] to-[#ff798e]  -tracking-[.5px]  text-white px-4 py-2 rounded-md mt-4"
+ >
+   Enroll & Pay
+ </button>
+          </div>
+</div>
           </>
         )}
       </div>
