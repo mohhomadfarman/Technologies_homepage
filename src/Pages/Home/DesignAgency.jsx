@@ -32,6 +32,7 @@ import { accordionData, services, skillsData } from "./homeData";
 import LineText from "../../Components/LineText";
 import { IconWithTextData_05 } from "../../Components/IconWithText/IconWithTextData";
 import Enroll from "../Enroll";
+import BookingForm from "../../Components/BookingForm";
 
 const FooterSocialIconData = [
   {
@@ -796,7 +797,8 @@ const Page = (props) => {
       <CommonModal
         bodyClass="bodyModals"
         className="StartModals"
-        ModalBody={<Enroll/>}
+        // ModalBody={<Enroll/>}
+        ModalBody={<BookingForm/>}
         modalHeading="GETTING STARTED"
         handleClose={handleClose}
         show={show}
