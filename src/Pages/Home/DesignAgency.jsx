@@ -73,13 +73,11 @@ const Page = (props) => {
     const [countryName, setCountryName] = useState("US");
 
     const countryCodes = [
-      
       { code: "US", dialCode: "+1", timezone: "America/New_York" },
-      { code: "UK", dialCode: "+44", timezone: "Europe/London" },
+      { code: "SG", dialCode: "+65", timezone: "Asia/Singapore" },
       { code: "IN", dialCode: "+91", timezone: "Asia/Kolkata" },
-      { code: "CA", dialCode: "+1", timezone: "America/Toronto" },
-      { code: "AU", dialCode: "+61", timezone: "Australia/Sydney" },
     ];
+    
 
     const Payload = `${countryCode}${contact}`
  
