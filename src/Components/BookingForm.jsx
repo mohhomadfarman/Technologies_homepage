@@ -75,8 +75,8 @@ const BookingForm = () => {
         "https://zjttxh7w0j.execute-api.ap-south-1.amazonaws.com/TGFE/TGFE_Enquiry",
         requestData
       );
-      setMessage("Booking successfully submitted!");
-    } catch (error) {
+      setMessage("Assessment request successfully submitted! We'll get back to you shortly!!");
+    } catch (error) { 
       console.error("API Error:", error);
       setMessage("Failed to submit booking. Please try again.");
     } finally {
@@ -93,26 +93,7 @@ const BookingForm = () => {
         </p>
 
         <form onSubmit={handleSubmit}>
-          <div className="flex justify-between">
-            <div className="mb-4 w-[48%] flex flex-col">
-              <label className="block mb-2 text-start">Select Date</label>
-              <DatePicker
-                selected={selectedDate}
-                onChange={(date) => setSelectedDate(date)}
-                className="w-full p-2 rounded bg-gray-100 text-dark"
-              />
-            </div>
-            <div className="mb-4 w-[48%] flex flex-col">
-              <label className="block mb-2 text-start">Select Time</label>
-              <input
-                type="time"
-                value={selectedTime}
-                onChange={(e) => setSelectedTime(e.target.value)}
-                className="w-full p-2 rounded bg-gray-100 text-dark"
-                required
-              />
-            </div>
-          </div>
+          
           <div className="mb-4">
             <label className="block mb-2 text-start">Enter Your Name</label>
             <input
@@ -144,6 +125,26 @@ const BookingForm = () => {
                 onChange={(e) => setContact(e.target.value)}
                 className="w-full p-2 rounded bg-gray-100 text-dark"
                 placeholder="Enter Phone Number"
+                required
+              />
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <div className="mb-4 w-[48%] flex flex-col">
+              <label className="block mb-2 text-start">Select Date</label>
+              <DatePicker
+                selected={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+                className="w-full p-2 rounded bg-gray-100 text-dark"
+              />
+            </div>
+            <div className="mb-4 w-[48%] flex flex-col">
+              <label className="block mb-2 text-start">Select Time</label>
+              <input
+                type="time"
+                value={selectedTime}
+                onChange={(e) => setSelectedTime(e.target.value)}
+                className="w-full p-2 rounded bg-gray-100 text-dark"
                 required
               />
             </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import "./style.css";
 
@@ -33,6 +33,8 @@ import LineText from "../../Components/LineText";
 import { IconWithTextData_05 } from "../../Components/IconWithText/IconWithTextData";
 import Enroll from "../Enroll";
 import BookingForm from "../../Components/BookingForm";
+import moment from "moment-timezone";
+import axios from "axios";
 
 const FooterSocialIconData = [
   {
@@ -59,15 +61,102 @@ const FooterSocialIconData = [
 
 const Page = (props) => {
   const [show, setShow] = useState(false);
+  const [mobileNumber,setMobileNumber] = useState();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const [selectedImage, setSelectedImage] = useState(skillsData[0].imgSrc);
+    const [contact, setContact] = useState("");
+      const [selectedTime, setSelectedTime] = useState("");
+    const [countryCode, setCountryCode] = useState("+1");
+    const [countryName, setCountryName] = useState("US");
+
+    const countryCodes = [
+      
+      { code: "US", dialCode: "+1", timezone: "America/New_York" },
+      { code: "UK", dialCode: "+44", timezone: "Europe/London" },
+      { code: "IN", dialCode: "+91", timezone: "Asia/Kolkata" },
+      { code: "CA", dialCode: "+1", timezone: "America/Toronto" },
+      { code: "AU", dialCode: "+61", timezone: "Australia/Sydney" },
+    ];
+
+    const Payload = `${countryCode}${contact}`
+ 
+    useEffect(() => {
+      const fetchLocation = async () => {
+        try {
+          const response = await fetch("https://ipapi.co/json/");
+          const data = await response.json();
+          if (data && data?.country) {
+            // console.log(data)
+            const foundCountry = countryCodes.find((c) => c.dialCode === data.country_calling_code);
+            if (foundCountry) {
+              setCountryCode(data?.country_calling_code);
+              setCountryName(data?.country);
+  
+            }
+          }
+        } catch (error) {
+          console.error("Error fetching location:", error);
+        }
+      };
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          () => fetchLocation(),
+          (error) => {
+            console.warn("Geolocation permission denied, using IP lookup.");
+            fetchLocation();
+          }
+        );
+      } else {
+        fetchLocation();
+      }
+    }, []);
+
+
+      // useEffect(() => {
+      //   const foundCountry = countryCodes.find((c) => c.code === countryCode);
+      //   if (foundCountry) {
+      //     const localTime = moment().tz(foundCountry.timezone).format("HH:mm");
+      //     setSelectedTime(localTime);
+      //   }
+      // }, [countryCode]);
+
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
 
   const handleSkillClick = (imgSrc) => {
     setSelectedImage(imgSrc);
   };
+
+    const Newsletter  = async () =>{
+      setLoading(true);
+      setMessage("");
+      const requestData = {
+        name:" ",
+        time:" ",
+        contact_number: Payload,
+        date: moment(new Date()).format("YYYY-MM-DD"),
+      };
+      try {
+        const response = await axios.post(
+          "https://zjttxh7w0j.execute-api.ap-south-1.amazonaws.com/TGFE/TGFE_Enquiry",
+          requestData
+        );
+        setMessage("Your request successfully submitted! We'll get back to you shortly!!");
+        setContact(' ')
+      } catch (error) { 
+        console.error("API Error:", error);
+        setMessage("Failed to submit booking. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+
+    
 
   const TextheadingGredient =
     "bg-gradient-to-l from-[#556fff] via-[#e05fc4] to-[#ff798e] text-gradient -tracking-[.5px] ";
@@ -77,7 +166,7 @@ const Page = (props) => {
         <SideButtons />
         {/* Header Start */}
         <Header />
-          <LineText onPress={handleShow}/>
+        <LineText onPress={handleShow} />
         {/* Section Start */}
         <div className="md:flex md:items-center overflow-hidden relative">
           <Parallax
@@ -95,28 +184,29 @@ const Page = (props) => {
           ></div>
 
           <Container className="relative">
-            <Row className="full-screen md:h-[650px] ">
+            <Row className="full-screen md:h-[650px] justify-center">
               <Col
-                lg={7}
+                lg={12}
                 md={6}
                 sm={7}
-                className="flex flex-col items-start justify-center"
+                className="flex flex-col items-center justify-center"
               >
-                <h1 className="font-serif font-semibold text-[70px] leading-[90px] text-white drop-shadow -tracking-[4px] mb-[4.5rem] xs:w-[85%] lg:text-[80px] lg:leading-[90px] md:text-[50px] md:leading-[65px] sm:text-[35px] sm:leading-[43px] sm:-tracking-[.5px]">
-                  AI is not in the<br/>
+                <h1 className="font-serif text-center font-semibold text-[70px] leading-[90px] text-white drop-shadow -tracking-[4px] mb-[4.5rem] xs:w-[85%] lg:text-[80px] lg:leading-[90px] md:text-[50px] md:leading-[65px] sm:text-[35px] sm:leading-[43px] sm:-tracking-[.5px]">
+                  {/* AI is not in the<br/>
                   Future !!<br/>
                   It's happening<br/>
-                  NOW !!<br/>
+                  NOW !!<br/> */}
+                  The most practical way to learn technology On Earth!
                 </h1>
-                <p className="text-white font-medium">
-                  Artificial Intelligence isn't just the future !! it's here today ! it's changing how we work, play and connect.
-                  </p>
-                  <p className="mb-5 text-white font-medium">Start your AL journey now and embrace the possibilities !
+                <p className="text-white text-center font-medium">
+                  Technology Garage has brought the world's top most gadgets, methodologies, and mechanisms together to make a fun learning experience. Learning pathways are designed to introduce the technical concepts slowly in a play-way methodology.
                 </p>
+                {/* <p className="mb-5 text-white font-medium">Start your AL journey now and embrace the possibilities !
+                </p> */}
                 <Buttons
-                
+                  onClick={handleShow}
                   ariaLabel="Get started now"
-                  to="/page/contact-classic"
+                  // to="/page/contact-classic"
                   className="font-semibold text-[30px] font-serif z-10 uppercase btn-expand rounded md:mb-[15px] hover:text-white"
                   color="#fff"
                   themeColor="#828282"
@@ -142,7 +232,7 @@ const Page = (props) => {
           </div>
         </div>
 
-            {/*start- second_section--- */}
+        {/*start- second_section--- */}
         {/* <section id="about"
           className="py-[160px] overflow-hidden lg:py-[120px] md:py-[95px] sm:py-[80px] xs:py-[50px]">
             <Container>
@@ -180,79 +270,79 @@ const Page = (props) => {
               </Row>
             </Container>
         </section> */}
-{/* second_section---end */}
-<section
+        {/* second_section---end */}
+        <section
           className="overflow-hidden py-[120px] lg:py-[90px] sm:py-[80px] bg-black">
-            <Container>
-              <Row className="md:justify-center xl:justify-center">
-               <Col md={12}>
-               <m.h2
-                    className={`${TextheadingGredient} heading-4 font-serif font-semibold text-darkgray  -tracking-[.5px] text-center`}
-                    {...{
-                      ...fadeInLeft,
-                      transition: { delay: 0.2, duration: 0.6 },
-                    }}
-                  >
-                    What We do, We do the Best!
-                  </m.h2>
-                  <m.div
-                    {...{
-                      ...fadeIn,
-                      transition: { duration: 0.7, delay: 0.7 },
-                    }}
-                  >
-                  </m.div>
+          <Container>
+            <Row className="md:justify-center xl:justify-center">
+              <Col md={12}>
+                <m.h2
+                  className={`${TextheadingGredient} heading-4 font-serif font-semibold text-darkgray  -tracking-[.5px] text-center`}
+                  {...{
+                    ...fadeInLeft,
+                    transition: { delay: 0.2, duration: 0.6 },
+                  }}
+                >
+                  What We do, We do the Best!
+                </m.h2>
+                <m.div
+                  {...{
+                    ...fadeIn,
+                    transition: { duration: 0.7, delay: 0.7 },
+                  }}
+                >
+                </m.div>
               </Col>
-                <Col lg={4} md={6}>
-                  <div className="text-center mb-[16px] flex flex-col justify-center items-center">
-                    <img src="assets/img/Exposure to Technology .svg" className="img-fluid w-[170px]" alt="" />
-                    <h5 className="sm:w-[77%] leading-[24px] text-[15px] font-semibold text-white mb-[10px]">Exposure to Technology</h5>
-                    <p className="leading-[24px]">Explore the greatest learning pathways and the
-                      latest technologies shaping the world around us
-                      Start here and shape the future!
-                    </p>
-                  </div>
-                </Col>
-                <Col lg={4} md={6}>
-                  <div className="text-center mb-[16px] flex flex-col justify-center items-center">
-                    <img src="assets/img/Hands-On Experience to Become the Future You .svg" className="img-fluid w-[170px]" alt="" />
-                    <h5 className="sm:w-[77%] leading-[24px] text-[15px] font-semibold text-white mb-[10px]">Hands-On Experience to
+              <Col lg={4} md={6}>
+                <div className="text-center mb-[16px] flex flex-col justify-center items-center">
+                  <img src="assets/img/Exposure to Technology .svg" className="img-fluid w-[170px]" alt="" />
+                  <h5 className="sm:w-[77%] leading-[24px] text-[15px] font-semibold text-white mb-[10px]">Exposure to Technology</h5>
+                  <p className="leading-[24px]">Explore the greatest learning pathways and the
+                    latest technologies shaping the world around us
+                    Start here and shape the future!
+                  </p>
+                </div>
+              </Col>
+              <Col lg={4} md={6}>
+                <div className="text-center mb-[16px] flex flex-col justify-center items-center">
+                  <img src="assets/img/Hands-On Experience to Become the Future You .svg" className="img-fluid w-[170px]" alt="" />
+                  <h5 className="sm:w-[77%] leading-[24px] text-[15px] font-semibold text-white mb-[10px]">Hands-On Experience to
                     Become the Future You</h5>
-                    <p className="leading-[24px]">Acquire real-world experience to craft the future
+                  <p className="leading-[24px]">Acquire real-world experience to craft the future
                     version of yourself. Begin your journey here and
                     transform your future!
-                    </p>
-                  </div>
-                </Col>
-                <Col lg={4} md={6}>
-                  <div className="text-center mb-[16px] flex flex-col justify-center items-center">
-                    <img src="assets/img/Compete with the Rest of the World .svg" className="img-fluid w-[170px]" alt="" />
-                    <h5 className="sm:w-[77%] leading-[24px] text-[15px] font-semibold text-white mb-[10px]">Compete with the Rest of the World</h5>
-                    <p className="leading-[24px]">Learning is only half the job done; hands-on experience
+                  </p>
+                </div>
+              </Col>
+              <Col lg={4} md={6}>
+                <div className="text-center mb-[16px] flex flex-col justify-center items-center">
+                  <img src="assets/img/Compete with the Rest of the World .svg" className="img-fluid w-[170px]" alt="" />
+                  <h5 className="sm:w-[77%] leading-[24px] text-[15px] font-semibold text-white mb-[10px]">Compete with the Rest of the World</h5>
+                  <p className="leading-[24px]">Learning is only half the job done; hands-on experience
                     is what truly completes the journey. Thats's exactly what we do at Technology Garage!
-                    </p>
-                  </div>
-                </Col>
-                <Col lg={4} md={6}>
-                  <div className="text-center mb-[16px] flex flex-col justify-center items-center">
-                    <img src="assets/img/Convert Your Creativity to Implementation  .svg" className="img-fluid w-[170px]" alt="" />
-                    <h5 className=" sm:w-[77%] leading-[24px] text-[15px] font-semibold text-white mb-[10px]">Convert Your Creativity to Implementation</h5>
-                    <p className=" leading-[22px]">Bring your creative ideas to life by turning them info real-world solutions
-                    </p>
-                  </div>
-                </Col>
-                <Col lg={4} md={6}>
-                  <div className="text-center mb-[16px] flex flex-col justify-center items-center">
-                    <img src="assets/img/Become a Leader in What You Want to Achieve with Technology .svg" className="img-fluid w-[170px]" alt="" />
-                    <h5 className=" leading-[24px] text-[15px] font-semibold text-white mb-[10px]">Become a Leader in What You Want to
+                  </p>
+                </div>
+              </Col>
+              <Col lg={4} md={6}>
+                <div className="text-center mb-[16px] flex flex-col justify-center items-center">
+                  <img src="assets/img/Convert Your Creativity to Implementation  .svg" className="img-fluid w-[170px]" alt="" />
+                  <h5 className=" sm:w-[77%] leading-[24px] text-[15px] font-semibold text-white mb-[10px]">Convert Your Creativity to Implementation</h5>
+                  <p className=" leading-[22px]">Bring your creative ideas to life by turning them info real-world solutions
+                  </p>
+                </div>
+              </Col>
+              <Col lg={4} md={6}>
+                <div className="text-center mb-[16px] flex flex-col justify-center items-center">
+                  <img src="assets/img/Become a Leader in What You Want to Achieve with Technology .svg" className="img-fluid w-[170px]" alt="" />
+                  <h5 className=" leading-[24px] text-[15px] font-semibold text-white mb-[10px]">Become a Leader in What You Want to
                     Achieve with Technology</h5>
-                    <p className="leading-[24px]">Learning is only half the job done; hands-on experience
+                  <p className="leading-[24px]">Learning is only half the job done; hands-on experience
                     is what truly completes the journey.
-                    </p>
-                  </div>
-                </Col>
-              </Row>
-            </Container>
+                  </p>
+                </div>
+              </Col>
+            </Row>
+          </Container>
         </section>
         <section
           id="about"
@@ -260,28 +350,28 @@ const Page = (props) => {
         >
           <Container>
             <div className=" flex flex-column justify-center items-center">
-            <m.h2
-                  className={`${TextheadingGredient} heading-4 text-center w-[100%] font-serif font-semibold text-darkgray block sm:mb-[10px] md:mb-12 lg:mb-12 xl:mb-12 pr-10 -tracking-[1px] lg:pr-0`}
-                  {...{ ...fadeIn, transition: { duration: 0.7, delay: 0.5 } }}
-                >
-                  How does it works
-                </m.h2>
-            <IconWithText 
-              grid="row-cols-2 row-cols-lg-3 w-[100%] row-cols-md-3 row-cols-sm-3 gap-y-[55px] sm:gap-y-[30px] justify-between"
-              theme="icon-with-text-05"
-              data={IconWithTextData_05}
-              animation={fadeIn}
-              animationDelay={0.1}
-            />
+              <m.h2
+                className={`${TextheadingGredient} heading-4 text-center w-[100%] font-serif font-semibold text-darkgray block sm:mb-[10px] md:mb-12 lg:mb-12 xl:mb-12 pr-10 -tracking-[1px] lg:pr-0`}
+                {...{ ...fadeIn, transition: { duration: 0.7, delay: 0.5 } }}
+              >
+                How does it works
+              </m.h2>
+              <IconWithText
+                grid="row-cols-2 row-cols-lg-3 w-[100%] row-cols-md-3 row-cols-sm-3 gap-y-[55px] sm:gap-y-[30px] justify-between"
+                theme="icon-with-text-05"
+                data={IconWithTextData_05}
+                animation={fadeIn}
+                animationDelay={0.1}
+              />
 
-                  <p className="sm:pl-[12px] mt-[55px] sm:mt-[40px] sm:text-left md:text-center xl:text-center ">
-                  You Will be assigned a dedicated coach who will work closely with you to help you develop a strong foundation
-                  in technology. This primary coach will not only guide you
-                  through your learning journey but will also bring in additional expert coaches when needed, ensuring you
-                  get the specialized support required for your growth.
-                </p>
+              <p className="sm:pl-[12px] mt-[55px] sm:mt-[40px] sm:text-left md:text-center xl:text-center ">
+                You Will be assigned a dedicated coach who will work closely with you to help you develop a strong foundation
+                in technology. This primary coach will not only guide you
+                through your learning journey but will also bring in additional expert coaches when needed, ensuring you
+                get the specialized support required for your growth.
+              </p>
             </div>
-             {/* summer-camp-start */}
+            {/* summer-camp-start */}
             {/* <Row className="items-center justify-center mt-[10.5rem] md:mt-28 md:text-center">
               <Col lg={5} md={10} className="md:mb-[25px] md:text-center">
                 <m.h2
@@ -323,7 +413,7 @@ const Page = (props) => {
             {/* summer-camp-end */}
           </Container>
         </section >
-{/* what-we-do-start */}
+        {/* what-we-do-start */}
         {/* <section
           className="py-[120px] overflow-hidden lg:py-[90px] md:py-[75px] sm:py-[50px] bg-black">
             <Container>
@@ -410,7 +500,7 @@ const Page = (props) => {
             </Container>
         </section> */}
         {/* what-we-do-end */}
-                    {/* hover-custom-card-start */}
+        {/* hover-custom-card-start */}
         {/* <section className=" overflow-hidden bg-gradient-to-b from-[#fff] via-[#fdfdfd] to-[#f7f7f7] xl:py-[120px] lg:py-[90px] md:py-[75px] sm:py-[50px]">
           <Container>
             <Row className="items-center justify-between">
@@ -477,7 +567,7 @@ const Page = (props) => {
                 className="sm:text-center md:text-center"
               >
                 <h2 className={`${TextheadingGredient} heading-4 font-serif font-semibold text-darkgray -tracking-[1px] mb-10`}>
-                Your One - Stop Shop
+                  Your One - Stop Shop
                 </h2>
                 <p className="xl:w-[90%] sm:w-full mb-[35px] md:w-[100%] sm:text-left">
                   With this personalized and flexible approch, Technology Garage becomes your
@@ -486,8 +576,8 @@ const Page = (props) => {
                 </p>
               </Col>
               <Col
-               xl={{ span: 7, offset: 1 }}
-               lg={7} className="px-0"
+                xl={{ span: 7, offset: 1 }}
+                lg={7} className="px-0"
               >
                 <div>
                   <img
@@ -497,29 +587,29 @@ const Page = (props) => {
                   />
                 </div>
               </Col>
-              
+
             </m.div>
             <Row className="justify-center ">
               <Col lg={12}>
                 <div>
-                <p className="w-[100%] mt-[35px] lg:w-full">
-                Technology Garage is your "one-stop shop" a
-                place where you can dive deep into hands-on
-                experiences, enhance your tech skills, and explore
-                everything from the basics to more advanced
-                techniques, all in one convenient location. Whether
-                you're starting from scratch or leveling up your
-                expertise, our expert coaches and cutting-edge
-                tools are here to guide you every step of the way.
-                Empower yourself today, unlock your full potential,
-                and be ready to shape a brighter, more innovative
-                tomorrow .
+                  <p className="w-[100%] mt-[35px] lg:w-full">
+                    Technology Garage is your "one-stop shop" a
+                    place where you can dive deep into hands-on
+                    experiences, enhance your tech skills, and explore
+                    everything from the basics to more advanced
+                    techniques, all in one convenient location. Whether
+                    you're starting from scratch or leveling up your
+                    expertise, our expert coaches and cutting-edge
+                    tools are here to guide you every step of the way.
+                    Empower yourself today, unlock your full potential,
+                    and be ready to shape a brighter, more innovative
+                    tomorrow .
                   </p>
                 </div>
               </Col>
-              </Row>
-          
-              
+            </Row>
+
+
 
           </Container>
         </section>
@@ -530,66 +620,66 @@ const Page = (props) => {
         >
           <Container>
 
-            <Row className="">
-            <Col lg={4} 
-                    md={6} 
+            <Row className="pb-[24px]">
+              <Col lg={4}
+                md={6}
 
-                  
-                  className="d-flex mt-5" >
-            <div className="border px-3 py-4 rounded-lg hover:shadow-lg transition-shadow duration-300 ease-in-out bg-white hover:bg-white">
-              <div className="text-center pb-4 flex justify-center">
-                <img src="/assets/img/Basics.svg" className="img-fluid w-[70px]" alt="" />
-              </div>
-              <div className="">
-                <h3 className="text-[15px] leading-[22px] font-serif text-darkgray font-medium mb-3 text-center">
-                  Basics of Technology
-                </h3>
-                <p className="text-center leading-8 pt-2">Designed for beginners, this track you from scratch, starting with block-based coding and 
-                gradually advancing to more sophisticated skills.
-                Start your journey with the basics and build a solid foundation for the future.</p>
-              </div>
-            </div>
-          </Col>
-          <Col lg={4} 
-                    md={6} 
-                  
-                  className="d-flex mt-5" >
-            <div className="border px-3 py-4 rounded-lg hover:shadow-lg transition-shadow duration-300 ease-in-out bg-white hover:bg-white">
-              <div className="text-center pb-4 flex justify-center">
-              <img src="/assets/img/Learn.svg" className="img-fluid w-[70px]" alt="" />
-              </div>
-              <div className="">
-                <h3 className="text-[15px] leading-[22px] font-serif text-darkgray font-medium mb-3 text-center">
-                Learn and Grow with Artificial Intelligence
-                </h3>
-                <p className="text-center leading-8 pt-2">Dive into the world of Artificial Intelligence and
-                    develop the skills needed to understand and work
-                    with Al. From machine learning to Generative Al,
-                    explore the endless possibilities of Artificial
-                    Intelligence and how it's shaping the world.</p>
-              </div>
-            </div>
-          </Col>
-          <Col lg={4} 
-                    md={6} 
-                  
-                  className="d-flex mt-5" >
-            <div className="border px-3 py-4 rounded-lg hover:shadow-lg transition-shadow duration-300 ease-in-out bg-white hover:bg-white">
-              <div className="text-center pb-4 flex justify-center">
-              <img src="/assets/img/Gamified.svg" className="img-fluid w-[70px]" alt="" />
-              </div>
-              <div>
-                <h3 className="text-[15px] leading-[22px] font-serif text-darkgray font-medium mb-3 text-center">
-                Gamified Learning Experience
-                </h3>
-                <p className="text-center leading-8 pt-2">Experience learning like never before with a
-                  gamified approach! Earn points as you progress
-                  through challenges, and redeem them to unlock
-                  and use cutting-edge technology tools. Make
-                  learning fun and rewarding!</p>
-              </div>
-            </div>
-          </Col>
+
+                className="d-flex  mb-5" >
+                <div className="border px-3 py-4 rounded-lg hover:shadow-lg transition-shadow duration-300 ease-in-out bg-white hover:bg-white">
+                  <div className="text-center pb-4 flex justify-center">
+                    <img src="/assets/img/Basics.svg" className="img-fluid w-[70px]" alt="" />
+                  </div>
+                  <div className="">
+                    <h3 className="text-[15px] leading-[22px] font-serif text-darkgray font-medium mb-3 text-center">
+                      Basics of Technology
+                    </h3>
+                    <p className="text-center leading-8 pt-2">Designed for beginners, this track you from scratch, starting with block-based coding and
+                      gradually advancing to more sophisticated skills.
+                      Start your journey with the basics and build a solid foundation for the future.</p>
+                  </div>
+                </div>
+              </Col>
+              <Col lg={4}
+                md={6}
+
+                className="d-flex  mb-5" >
+                <div className="border px-3 py-4 rounded-lg hover:shadow-lg transition-shadow duration-300 ease-in-out bg-white hover:bg-white">
+                  <div className="text-center pb-4 flex justify-center">
+                    <img src="/assets/img/Learn.svg" className="img-fluid w-[70px]" alt="" />
+                  </div>
+                  <div className="">
+                    <h3 className="text-[15px] leading-[22px] font-serif text-darkgray font-medium mb-3 text-center">
+                      Learn and Grow with Artificial Intelligence
+                    </h3>
+                    <p className="text-center leading-8 pt-2">Dive into the world of Artificial Intelligence and
+                      develop the skills needed to understand and work
+                      with Al. From machine learning to Generative Al,
+                      explore the endless possibilities of Artificial
+                      Intelligence and how it's shaping the world.</p>
+                  </div>
+                </div>
+              </Col>
+              <Col lg={4}
+                md={6}
+
+                className="d-flex  mb-5" >
+                <div className="border px-3 py-4 rounded-lg hover:shadow-lg transition-shadow duration-300 ease-in-out bg-white hover:bg-white">
+                  <div className="text-center pb-4 flex justify-center">
+                    <img src="/assets/img/Gamified.svg" className="img-fluid w-[70px]" alt="" />
+                  </div>
+                  <div>
+                    <h3 className="text-[15px] leading-[22px] font-serif text-darkgray font-medium mb-3 text-center">
+                      Gamified Learning Experience
+                    </h3>
+                    <p className="text-center leading-8 pt-2">Experience learning like never before with a
+                      gamified approach! Earn points as you progress
+                      through challenges, and redeem them to unlock
+                      and use cutting-edge technology tools. Make
+                      learning fun and rewarding!</p>
+                  </div>
+                </div>
+              </Col>
             </Row>
             {/* <m.div className="row items-center" {...fadeIn}>
               <Col
@@ -628,10 +718,10 @@ const Page = (props) => {
                 </div>
               </Col>
             </m.div> */}
-            
+
           </Container>
         </section>
-{/* studio-setup */}
+        {/* studio-setup */}
         {/* <m.section
           className="py-[130px] bg-lightgray overflow-hidden lg:py-[90px] md:py-[75px] sm:py-[50px]"
           {...fadeIn}
@@ -738,58 +828,8 @@ const Page = (props) => {
         </Row>
       </Container>
     </section> */}
-    {/* end-certificate */}
-        <section
-          className="py-[160px] overflow-hidden bg-no-repeat bg-right lg:py-[120px] md:py-[95px] sm:py-[80px] xs:py-[50px]"
-          style={{
-            backgroundImage: `url('https://dryycleaner.in/wp-content/uploads/2024/09/row-bgimage-1-1.png')`,
-          }}
-        >
-          <Container>
-            <m.div className="row items-center lg:justify-center">
-              <Col
-                lg={6}
-                md={10}
-                className="md:mb-12 md:text-center sm:text-center"
-              >
-                <m.h2
-                  className={`${TextheadingGredient} heading-4 pl-4  font-serif font-medium text-darkgray mb-0 -tracking-[1px] inline-block md:w-[100%] lg:w-[100%] xs:w-full`}
-                  {...fadeInRight}
-                >
-                  The most practical way to learn technology On Earth!
-                </m.h2>
-              </Col>
-              <Col lg={6} md={9} className="md:mb-12 md:text-center lg:text-start">
-                <m.div
-                  className=" sm:text-center"
-                  {...{ ...fadeIn, transition: { duration: 0.7, delay: 0.7 } }}
-                >
-                  <p className="w-[100%] mb-[15px] pr-2 lg:w-full">
-                    Technology Garage has brought the world's top most gadgets,
-                    methodologies, and mechanisms together to make a fun
-                    learning experience. Learning pathways are designed to
-                    introduce the technical concepts slowly in a play-way
-                    methodology.
-                  </p>
-                </m.div>
-              </Col>
-              {/* <m.div
-                className="text-center col-lg-3"
-                {...{ ...fadeIn, transition: { delay: 0.6 } }}
-              >
-                <Buttons
-                  ariaLabel="Start a project"
-                  to="/page/contact-modern"
-                  className="btn-fill btn-fancy font-medium font-serif uppercase rounded-none btn-shadow"
-                  size="md"
-                  themeColor="#232323"
-                  color="#fff"
-                  title="Start a project"
-                />
-              </m.div> */}
-            </m.div>
-          </Container>
-        </section>
+        {/* end-certificate */}
+    
 
         {/* Section End */}
       </div>
@@ -798,7 +838,7 @@ const Page = (props) => {
         bodyClass="bodyModals"
         className="StartModals"
         // ModalBody={<Enroll/>}
-        ModalBody={<BookingForm/>}
+        ModalBody={<BookingForm />}
         modalHeading="GETTING STARTED"
         handleClose={handleClose}
         show={show}
@@ -847,8 +887,8 @@ const Page = (props) => {
               className="text-center items-center flex flex-col md:items-start sm:mb-[50px] sm:items-center xs:mb-[30px]"
             >
               <span className="mb-[25px] block sm:w-full font-semibold text-black text-[24px] md:text-start md:w-4/5 sm:text-start leading-none md:leading-normal">
-                  Get In Touch
-               
+                Get In Touch
+
               </span>
               <div className="form w-[75%] justify-center md:justify-start xs:w-[95%] overflow-hidden">
                 <Formik
@@ -864,10 +904,38 @@ const Page = (props) => {
                     response.status === "success" && resetForm(actions);
                   }}
                 >
+               
                   {({ isSubmitting, status }) => (
                     <div className="relative subscribe-style-05 overflow-hidden">
-                      <Form className="relative">
+
+<div className="flex">
+              <select
+                className="p-2 rounded bg-gray-100 text-dark mr-2"
+                value={countryCode}
+                onChange={(e) => setCountryCode(e.target.value)}
+              >
+                {countryCodes.map((country) => (
+                  <option key={country.code} value={country.dialCode}>
+                    {country.code} {country.dialCode}
+                  </option>
+                ))}
+              </select>
+              <input
+                type="tel"
+                value={contact}
+                onChange={(e) => setContact(e.target.value)}
+                className=" p-2 rounded bg-gray-100 text-dark w-full"
+                placeholder="Enter Phone Number"
+                required
+              />
+              <button className="flex text-nowrap " disabled={loading} onClick={Newsletter}>
+                <span className="p-3 px-[20px] bg-black">{loading?"Submiting..":"Submit"}</span>
+              </button>
+            </div>
+            {message && <p>{message}</p>}
+                      {/* <Form className="relative">
                         <Input
+                          onChange={(e)=>setMobileNumber(e.traget.values)}
                           showErrorMsg={false}
                           type="number"
                           name="contact"
@@ -875,15 +943,15 @@ const Page = (props) => {
                           placeholder="Enter your Contact Number"
                         />
                         <button
+                          onClick={Newsletter}
                           aria-label="subscribe btn"
                           type="submit"
-                          className={`text-xs tracking-[1px] !py-[4px] !px-[18px] top-1/2 translate-y-2/4 uppercase !border-l-0 xs:text-center${
-                            isSubmitting ? " loading" : ""
-                          }`}
+                          className={`text-xs tracking-[1px] !py-[4px] !px-[18px] top-1/2 translate-y-2/4 uppercase !border-l-0 xs:text-center${isSubmitting ? " loading" : ""
+                            }`}
                         >
                           Submit
                         </button>
-                      </Form>
+                      </Form> */}
                       <AnimatePresence>
                         {status && (
                           <m.div
