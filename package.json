@@ -15,6 +15,7 @@
     "dotenv": "^16.0.3",
     "eslint": "^8.35.0",
     "express": "^4.18.2",
+    "firebase": "^11.2.0",
     "formik": "^2.2.9",
     "framer-motion": "^6.5.1",
     "isotope-layout": "^3.0.6",

@@ -4,20 +4,20 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment-timezone";
 
+
+
 const countryCodes = [
-  { code: "IN", dialCode: "+91", timezone: "Asia/Kolkata" },
   { code: "US", dialCode: "+1", timezone: "America/New_York" },
-  { code: "UK", dialCode: "+44", timezone: "Europe/London" },
-  { code: "CA", dialCode: "+1", timezone: "America/Toronto" },
-  { code: "AU", dialCode: "+61", timezone: "Australia/Sydney" },
+  { code: "SG", dialCode: "+65", timezone: "Asia/Singapore" },
+  { code: "IN", dialCode: "+91", timezone: "Asia/Kolkata" },
 ];
 
 const BookingForm = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState("");
   const [name, setName] = useState("");
-  const [contact, setContact] = useState("");
-  const [countryCode, setCountryCode] = useState("IN");
+  const [countryCode, setCountryCode] = useState("+1");
+  const [countryName, setCountryName] = useState("US");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -27,9 +27,11 @@ const BookingForm = () => {
         const response = await fetch("https://ipapi.co/json/");
         const data = await response.json();
         if (data && data.country) {
-          const foundCountry = countryCodes.find((c) => c.code === data.country);
+          const foundCountry = countryCodes.find((c) => c.dialCode === data.country_calling_code);
           if (foundCountry) {
-            setCountryCode(foundCountry.code);
+            setCountryCode(data?.country_calling_code);
+            setCountryName(data?.country);
+
           }
         }
       } catch (error) {
@@ -65,7 +67,7 @@ const BookingForm = () => {
 
     const requestData = {
       name,
-      contact_number: contact,
+      contact_number: `${countryCode}${contact}`,
       date: moment(selectedDate).format("YYYY-MM-DD"),
       time: selectedTime,
     };
@@ -114,7 +116,7 @@ const BookingForm = () => {
                 onChange={(e) => setCountryCode(e.target.value)}
               >
                 {countryCodes.map((country) => (
-                  <option key={country.code} value={country.code}>
+                  <option key={country.code} value={country.dialCode}>
                     {country.code} {country.dialCode}
                   </option>
                 ))}
