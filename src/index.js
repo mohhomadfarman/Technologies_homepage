@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";  // Only import createRoot
 import App from "./App";
 
 // Libraries
@@ -13,7 +13,7 @@ import "./Assets/css/global.css"
 import "./Assets/css/pages.css"
 import "./index.scss"
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("root"));  // Use createRoot directly
 root.render(
   <LazyMotion features={domMax}>
     <ParallaxProvider>
