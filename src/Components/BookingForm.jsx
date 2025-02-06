@@ -77,6 +77,9 @@ const BookingForm = () => {
         "https://zjttxh7w0j.execute-api.ap-south-1.amazonaws.com/TGFE/TGFE_Enquiry",
         requestData
       );
+
+
+      
       setMessage("Assessment request successfully submitted! We'll get back to you shortly!!");
     } catch (error) { 
       console.error("API Error:", error);
