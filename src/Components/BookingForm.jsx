@@ -16,6 +16,7 @@ const BookingForm = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState("");
   const [name, setName] = useState("");
+  const [contact, setContact] = useState("");
   const [countryCode, setCountryCode] = useState("+1");
   const [countryName, setCountryName] = useState("US");
   const [loading, setLoading] = useState(false);
@@ -79,7 +80,7 @@ const BookingForm = () => {
       );
 
 
-      
+
       setMessage("Assessment request successfully submitted! We'll get back to you shortly!!");
     } catch (error) { 
       console.error("API Error:", error);
